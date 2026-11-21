@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
-<title>FORGE // UI — COMPONENT &amp; PROMPT STUDIO</title>
+<title>Forge UI Studio — Live Theme &amp; Component Designer</title>
 <style>
   :root {
     --bg: #030711;
@@ -26,8 +26,8 @@
     display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px;
     padding: 10px 14px; background: var(--surface); border-bottom: 1px solid var(--border);
   }
-  .brand { font-weight: 800; font-size: 13px; color: var(--accent); letter-spacing: 0.5px; }
-  .brand span { color: var(--accent2); }
+  .brand { font-weight: 800; font-size: 13px; color: var(--accent); letter-spacing: 0.4px; }
+  .brand span { color: var(--fg); }
   .bar-group { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
   button, select, input[type=text], textarea, a.nav-btn {
     font-family: inherit; font-size: 11px; color: var(--fg);
@@ -39,7 +39,7 @@
   button:active, a.nav-btn:active { transform: scale(0.95); }
   button.active { border-color: var(--accent); color: var(--accent); background: rgba(56, 189, 248, 0.14); font-weight: 700; }
   .layout {
-    display: grid; grid-template-columns: 310px minmax(310px, 1fr) 330px;
+    display: grid; grid-template-columns: 320px minmax(310px, 1fr) 330px;
     gap: 12px; padding: 12px; max-width: 1460px; margin: 0 auto;
   }
   @media (max-width: 1040px) { .layout { grid-template-columns: 1fr; } }
@@ -47,12 +47,14 @@
     background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
     padding: 12px; display: flex; flex-direction: column; gap: 10px;
   }
-  .sec-title { font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.6px; }
+  .sec-title { font-size: 10.5px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; }
   .row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: space-between; }
-  label.ctl { display: block; font-size: 10px; color: var(--muted); }
+  .swatch-grid { display: flex; flex-wrap: wrap; gap: 5px; }
+  .sw-btn { width: 22px; height: 22px; border-radius: 6px; border: 1.5px solid rgba(255,255,255,0.25); padding: 0; cursor: pointer; }
+  label.ctl { display: block; font-size: 10.5px; color: var(--muted); }
   label.ctl span { float: right; color: var(--fg); }
   input[type=range] { width: 100%; accent-color: var(--accent); margin-top: 3px; }
-  input[type=color] { width: 34px; height: 26px; padding: 0; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; background: none; cursor: pointer; }
+  input[type=color] { width: 32px; height: 24px; padding: 0; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; background: none; cursor: pointer; }
   .stage-wrap {
     min-height: 320px; background: #02050b; border: 1px dashed rgba(255,255,255,0.16);
     border-radius: 12px; display: flex; align-items: center; justify-content: center;
@@ -97,99 +99,103 @@
 <body>
 <div class="top">
   <div class="bar-group">
-    <a href="./" id="back-project-link" class="nav-btn" style="color:var(--accent);border-color:var(--border);">&larr; BACK TO PROJECT</a>
-    <a href="https://portfolio-hub-44jc.vercel.app/" class="nav-btn">PORTFOLIO HUB</a>
-    <div class="brand">FORGE // <span>UI STUDIO</span></div>
+    <a href="./" id="back-project-link" class="nav-btn" style="color:var(--accent);border-color:var(--border);">&larr; Back to Project</a>
+    <a href="https://portfolio-hub-44jc.vercel.app/" class="nav-btn">Portfolio Hub</a>
+    <div class="brand">Forge <span>UI Studio</span></div>
   </div>
   <div class="bar-group">
-    <button id="btn-undo">UNDO</button>
-    <button id="btn-redo">REDO</button>
-    <button id="btn-vp-desk" class="active">DESKTOP</button>
-    <button id="btn-vp-mob">MOBILE</button>
-    <button id="btn-reset">RESET</button>
+    <button id="btn-undo">Undo</button>
+    <button id="btn-redo">Redo</button>
+    <button id="btn-vp-desk" class="active">Desktop View</button>
+    <button id="btn-vp-mob">Mobile View</button>
+    <button id="btn-reset">Reset Default</button>
   </div>
 </div>
 <div class="layout">
   <div class="card">
-    <div class="sec-title">Executive Theme &amp; Contrast Presets</div>
+    <div class="sec-title">Theme Presets</div>
     <div class="row" id="theme-presets">
-      <button data-theme="cyan" class="active">OBSIDIAN CYAN</button>
-      <button data-theme="emerald">NORDIC EMERALD</button>
-      <button data-theme="indigo">EXECUTIVE INDIGO</button>
-      <button data-theme="hc">HIGH CONTRAST</button>
+      <button data-theme="cyan" class="active">Ocean Blue</button>
+      <button data-theme="emerald">Emerald Green</button>
+      <button data-theme="indigo">Royal Indigo</button>
+      <button data-theme="amber">Sunset Amber</button>
+      <button data-theme="ruby">Ruby Red</button>
+      <button data-theme="hc">Pure Black</button>
     </div>
-    <div class="sec-title">HUD Archetype &amp; State</div>
+    <div class="sec-title">Element Type &amp; State</div>
     <div class="row">
-      <select id="ctl-kind">
-        <option value="button">Action Button</option>
-        <option value="card">Telemetry / Status Card</option>
-        <option value="badge">Badge / Pill</option>
-        <option value="toggle">Input / Toggle Control</option>
+      <select id="ctl-kind" style="flex:1;">
+        <option value="button">Element: Button</option>
+        <option value="card">Element: Feature Card</option>
+        <option value="badge">Element: Status Badge</option>
+        <option value="toggle">Element: Toggle Switch</option>
       </select>
-      <select id="ctl-state">
-        <option value="default">Default</option>
-        <option value="loading">Loading</option>
-        <option value="disabled">Disabled</option>
+      <select id="ctl-state" style="flex:1;">
+        <option value="default">State: Normal</option>
+        <option value="loading">State: Loading</option>
+        <option value="disabled">State: Disabled</option>
       </select>
     </div>
-    <label class="ctl">Label / Title</label>
-    <input type="text" id="ctl-label" value="DEPLOY NODE // 09" />
-    <label class="ctl">Telemetry / Subtitle</label>
-    <input type="text" id="ctl-sub" value="99.98% Uptime · 14ms Edge Latency" />
-    <div class="sec-title">Color Tokens</div>
+    <label class="ctl">Heading / Button Text</label>
+    <input type="text" id="ctl-label" value="Launch App" />
+    <label class="ctl">Description / Subtitle</label>
+    <input type="text" id="ctl-sub" value="Real-time metrics, custom themes, and accessible contrast." />
+    <div class="sec-title">Accent Color Swatches</div>
+    <div class="swatch-grid" id="quick-swatches"></div>
+    <div class="sec-title">Custom Color Pickers</div>
     <div class="row">
-      <label class="ctl">Primary <input type="color" id="ctl-accent" value="#38bdf8" /></label>
+      <label class="ctl">Accent <input type="color" id="ctl-accent" value="#38bdf8" /></label>
       <label class="ctl">Secondary <input type="color" id="ctl-accent2" value="#6366f1" /></label>
       <label class="ctl">Text <input type="color" id="ctl-fg" value="#eef7ff" /></label>
-      <label class="ctl">Surface <input type="color" id="ctl-bg" value="#081326" /></label>
+      <label class="ctl">Card Bg <input type="color" id="ctl-bg" value="#081326" /></label>
     </div>
-    <label class="ctl">Border Radius <span id="val-rad">12px</span>
+    <label class="ctl">Corner Rounding <span id="val-rad">12px</span>
       <input type="range" id="ctl-rad" min="0" max="32" value="12" />
     </label>
-    <label class="ctl">Glow &amp; Elevation <span id="val-glow">22px</span>
+    <label class="ctl">Shadow &amp; Glow <span id="val-glow">22px</span>
       <input type="range" id="ctl-glow" min="0" max="48" value="22" />
     </label>
     <div class="row">
-      <button id="ctl-pulse" class="active">RADAR PULSE</button>
-      <button id="ctl-shimmer" class="active">SHIMMER LOADER</button>
+      <button id="ctl-pulse" class="active">Pulse Ring</button>
+      <button id="ctl-shimmer" class="active">Loading Shimmer</button>
     </div>
   </div>
 
   <div class="card">
     <div class="row">
-      <div class="sec-title">Spring Morph Stage</div>
-      <span id="wcag-badge" class="wcag-pill">-- WCAG</span>
+      <div class="sec-title">Live Component Preview</div>
+      <span id="wcag-badge" class="wcag-pill">-- Contrast</span>
     </div>
     <div class="stage-wrap" id="stage-wrap">
       <div id="preview-mount"></div>
     </div>
     <div class="row">
-      <span id="wcag-detail" style="font-size:10px;color:var(--muted);">Pass: &gt;= 4.5:1 contrast ratio</span>
-      <button id="btn-trigger">FIRE STATE / PULSE</button>
+      <span id="wcag-detail" style="font-size:10px;color:var(--muted);">Target: &gt;= 4.5:1 contrast ratio</span>
+      <button id="btn-trigger">Test Loading State</button>
     </div>
   </div>
 
   <div class="card">
-    <div class="sec-title">Component Vault Presets</div>
+    <div class="sec-title">Saved Presets</div>
     <div class="row">
       <input type="text" id="vault-name" placeholder="Preset name..." style="flex:1;" />
-      <button id="vault-save" class="active">SAVE</button>
+      <button id="vault-save" class="active">Save Preset</button>
     </div>
     <div class="vault-list" id="vault-list"></div>
-    <div class="sec-title">Code &amp; Prompt Exporter</div>
+    <div class="sec-title">Export Code &amp; Prompts</div>
     <div class="row">
       <div class="bar-group">
-        <button id="exp-jsx" class="active">JSX</button>
-        <button id="exp-prompt">AI PROMPT</button>
-        <button id="exp-json">JSON</button>
+        <button id="exp-jsx" class="active">React Code</button>
+        <button id="exp-prompt">AI Prompt</button>
+        <button id="exp-json">JSON Config</button>
       </div>
-      <button id="btn-copy" class="active">COPY</button>
+      <button id="btn-copy" class="active">Copy Code</button>
     </div>
     <textarea class="code-out" id="code-out" spellcheck="false"></textarea>
-    <button id="btn-import-json">LOAD JSON FROM BOX</button>
+    <button id="btn-import-json">Load JSON Config</button>
   </div>
 </div>
-<div class="toast" id="toast">COPIED</div>
+<div class="toast" id="toast">Copied!</div>
 <script>
 (() => {
   const backBtn = document.getElementById('back-project-link');
@@ -202,25 +208,41 @@
     };
   }
 
-  const VAULT_KEY = 'forge_ui_vault_v3';
+  const SWATCH_LIST = [
+    '#38bdf8', '#00f0ff', '#0ea5e9', '#3b82f6', '#6366f1',
+    '#818cf8', '#a855f7', '#ec4899', '#f43f5e', '#fb7185',
+    '#ef4444', '#f97316', '#f59e0b', '#eab308', '#84cc16',
+    '#22c55e', '#10b981', '#14b8a6', '#e2e8f0', '#ffffff'
+  ];
+  const swMount = document.getElementById('quick-swatches');
+  SWATCH_LIST.forEach(hex => {
+    const b = document.createElement('button');
+    b.className = 'sw-btn';
+    b.style.background = hex;
+    b.title = hex;
+    b.onclick = () => commit({ accent: hex, theme: 'custom' });
+    swMount.appendChild(b);
+  });
+
+  const VAULT_KEY = 'forge_ui_vault_v4';
   const DEFAULTS = {
     theme: 'cyan', kind: 'button', state: 'default',
-    label: 'DEPLOY NODE // 09', sub: '99.98% Uptime · 14ms Edge Latency',
+    label: 'Launch App', sub: 'Real-time metrics, custom themes, and accessible contrast.',
     accent: '#38bdf8', accent2: '#6366f1', fg: '#eef7ff', bg: '#081326',
     rad: 12, glow: 22, pulse: true, shimmer: true
   };
   const STARTER_PRESETS = [
-    { name: 'Obsidian Cyan BTN', data: { ...DEFAULTS } },
-    { name: 'Nordic Emerald CARD', data: { ...DEFAULTS, theme: 'emerald', kind: 'card', accent: '#10b981', accent2: '#38bdf8', bg: '#051510', fg: '#ecfdf5', label: 'TELEMETRY LOCK', sub: 'Orbital Vector Nominal' } },
-    { name: 'Executive Indigo BADGE', data: { ...DEFAULTS, theme: 'indigo', kind: 'badge', accent: '#818cf8', accent2: '#c084fc', bg: '#0d0c22', fg: '#eef2ff', rad: 28, label: 'SIGNAL LOCKED' } },
-    { name: 'High Contrast SWITCH', data: { ...DEFAULTS, theme: 'hc', kind: 'toggle', accent: '#ffffff', accent2: '#38bdf8', bg: '#000000', fg: '#ffffff', glow: 10, label: 'MANUAL OVERRIDE' } }
+    { name: 'Ocean Blue Button', data: { ...DEFAULTS } },
+    { name: 'Emerald Feature Card', data: { ...DEFAULTS, theme: 'emerald', kind: 'card', accent: '#10b981', accent2: '#38bdf8', bg: '#051510', fg: '#ecfdf5', label: 'Project Analytics', sub: 'All services running smoothly' } },
+    { name: 'Royal Indigo Badge', data: { ...DEFAULTS, theme: 'indigo', kind: 'badge', accent: '#818cf8', accent2: '#c084fc', bg: '#0d0c22', fg: '#eef2ff', rad: 28, label: 'Active Status' } },
+    { name: 'High Contrast Switch', data: { ...DEFAULTS, theme: 'hc', kind: 'toggle', accent: '#ffffff', accent2: '#38bdf8', bg: '#000000', fg: '#ffffff', glow: 10, label: 'Notifications' } }
   ];
   let state = { ...DEFAULTS };
   let history = [JSON.stringify(state)];
   let histIdx = 0;
   let exportTab = 'jsx';
   let toggleChecked = true;
-  let inputVal = 'Nominal Vector';
+  let inputVal = 'Enabled';
   let burstTick = 0;
   const morph = { rad: state.rad, glow: state.glow, r: 56, g: 189, b: 248 };
 
@@ -248,12 +270,12 @@
     const badge = document.getElementById('wcag-badge');
     const detail = document.getElementById('wcag-detail');
     const passAAA = cr >= 7.0, passAA = cr >= 4.5;
-    const tier = passAAA ? 'AAA' : passAA ? 'AA' : 'FAIL';
+    const tier = passAAA ? 'AAA' : passAA ? 'AA' : 'Low';
     const col = passAA ? '#34d399' : '#fb7185';
-    badge.textContent = `${cr.toFixed(1)}:1 WCAG ${tier}`;
+    badge.textContent = `Contrast: ${cr.toFixed(1)}:1 (${tier})`;
     badge.style.color = col;
     badge.style.borderColor = col;
-    detail.textContent = passAA ? `Pass (${tier}): Foreground ${state.fg} on ${state.bg}` : `Low Contrast (${cr.toFixed(1)}:1 < 4.5:1)`;
+    detail.textContent = passAA ? `Passes WCAG ${tier}: Text ${state.fg} on Card ${state.bg}` : `Low Contrast (${cr.toFixed(1)}:1 < 4.5:1)`;
   }
   function generateOutput() {
     const out = document.getElementById('code-out');
@@ -262,12 +284,12 @@
       return;
     }
     if (exportTab === 'prompt') {
-      out.value = `Build a ${state.kind.toUpperCase()} component in React + Tailwind CSS v4:\n- Label: "${state.label}" | Subtitle: "${state.sub}"\n- State: ${state.state} | Contrast: ${contrastRatio(state.fg, state.bg).toFixed(1)}:1\n- Tokens: primary ${state.accent}, secondary ${state.accent2}, text ${state.fg}, surface ${state.bg}, radius ${state.rad}px, glow ${state.glow}px\n- Include spring hover transition, radar pulse ring (${state.pulse}), and shimmer skeleton (${state.shimmer}).`;
+      out.value = `Build a ${state.kind.toUpperCase()} component in React + Tailwind CSS v4:\n- Text: "${state.label}" | Description: "${state.sub}"\n- State: ${state.state} | Contrast Ratio: ${contrastRatio(state.fg, state.bg).toFixed(1)}:1\n- Colors: accent ${state.accent}, secondary ${state.accent2}, text ${state.fg}, card background ${state.bg}\n- Styling: corner rounding ${state.rad}px, shadow glow ${state.glow}px.`;
       return;
     }
     const styleObj = `{ background: '${state.bg}', color: '${state.fg}', borderRadius: '${state.rad}px', border: '1px solid ${state.accent}', boxShadow: '0 6px ${state.glow}px ${state.accent}55' }`;
     if (state.kind === 'button') {
-      out.value = `<button type="button" disabled={${state.state === 'disabled'}} style={${styleObj}} className="px-5 py-2.5 font-mono font-bold tracking-wider transition-transform active:scale-95">\n  ${state.state === 'loading' ? 'SYNCING...' : state.label}\n</button>`;
+      out.value = `<button type="button" disabled={${state.state === 'disabled'}} style={${styleObj}} className="px-5 py-2.5 font-mono font-bold tracking-wider transition-transform active:scale-95">\n  ${state.state === 'loading' ? 'Loading...' : state.label}\n</button>`;
     } else if (state.kind === 'badge') {
       out.value = `<span style={${styleObj}} className="inline-flex items-center gap-2 px-3 py-1 font-mono text-xs font-bold">\n  <span className="h-2 w-2 rounded-full" style={{ background: '${state.accent2}' }} />\n  ${state.label}\n</span>`;
     } else if (state.kind === 'toggle') {
@@ -301,9 +323,9 @@
     const pulseHtml = state.pulse ? '<span class="radar-ring"></span>' : '';
     const shimmerHtml = (load && state.shimmer) ? '<div class="shimmer-skeleton" style="margin-top:8px;"></div>' : '';
     if (state.kind === 'button') {
-      mount.innerHTML = `<button type="button" class="hud-target ${dis ? 'is-disabled' : ''}" id="morph-node" ${dis ? 'disabled' : ''} style="padding:11px 18px;font-weight:800;font-size:12px;letter-spacing:0.7px;">${pulseHtml}<span>${load ? 'SYNCING TELEMETRY...' : state.label}</span>${shimmerHtml}</button>`;
+      mount.innerHTML = `<button type="button" class="hud-target ${dis ? 'is-disabled' : ''}" id="morph-node" ${dis ? 'disabled' : ''} style="padding:11px 18px;font-weight:800;font-size:12px;letter-spacing:0.5px;">${pulseHtml}<span>${load ? 'Loading...' : state.label}</span>${shimmerHtml}</button>`;
     } else if (state.kind === 'badge') {
-      mount.innerHTML = `<div class="hud-target ${dis ? 'is-disabled' : ''}" id="morph-node" style="display:inline-flex;align-items:center;gap:8px;padding:7px 14px;font-weight:700;font-size:11px;">${pulseHtml}<span id="morph-dot" style="width:8px;height:8px;border-radius:50%;background:${state.accent2};"></span><span>${load ? 'PROBING...' : state.label}</span></div>`;
+      mount.innerHTML = `<div class="hud-target ${dis ? 'is-disabled' : ''}" id="morph-node" style="display:inline-flex;align-items:center;gap:8px;padding:7px 14px;font-weight:700;font-size:11px;">${pulseHtml}<span id="morph-dot" style="width:8px;height:8px;border-radius:50%;background:${state.accent2};"></span><span>${load ? 'Updating...' : state.label}</span></div>`;
     } else if (state.kind === 'toggle') {
       mount.innerHTML = `<div class="hud-target ${dis ? 'is-disabled' : ''}" id="morph-node" style="padding:10px 12px;display:flex;align-items:center;gap:8px;min-width:240px;">${pulseHtml}<input id="live-hud-input" type="text" value="${inputVal}" placeholder="${state.sub}" ${dis ? 'disabled' : ''} style="flex:1;min-width:0;background:rgba(0,0,0,0.35);color:inherit;border:1px solid rgba(255,255,255,0.2);padding:5px 7px;border-radius:6px;" /><button type="button" id="live-hud-switch" ${dis ? 'disabled' : ''} style="padding:5px 9px;font-weight:800;font-size:10px;border:none;border-radius:6px;">${toggleChecked ? 'ON' : 'OFF'}</button></div>`;
       const inp = document.getElementById('live-hud-input');
@@ -367,7 +389,7 @@
       const btn = document.createElement('button');
       btn.textContent = entry.name;
       btn.onclick = () => commit(entry.data);
-      btn.ondblclick = () => { items.splice(i, 1); localStorage.setItem(VAULT_KEY, JSON.stringify(items)); loadVault(); notify('REMOVED'); };
+      btn.ondblclick = () => { items.splice(i, 1); localStorage.setItem(VAULT_KEY, JSON.stringify(items)); loadVault(); notify('Removed Preset'); };
       list.appendChild(btn);
     });
   }
@@ -376,6 +398,8 @@
       const t = b.dataset.theme;
       if (t === 'emerald') commit({ theme: t, accent: '#10b981', accent2: '#38bdf8', bg: '#051510', fg: '#ecfdf5' });
       else if (t === 'indigo') commit({ theme: t, accent: '#818cf8', accent2: '#c084fc', bg: '#0d0c22', fg: '#eef2ff' });
+      else if (t === 'amber') commit({ theme: t, accent: '#f59e0b', accent2: '#ef4444', bg: '#1c1106', fg: '#fffbeb' });
+      else if (t === 'ruby') commit({ theme: t, accent: '#f43f5e', accent2: '#fb923c', bg: '#1f0910', fg: '#fff1f2' });
       else if (t === 'hc') commit({ theme: t, accent: '#ffffff', accent2: '#38bdf8', bg: '#000000', fg: '#ffffff', glow: 12 });
       else commit({ theme: 'cyan', accent: '#38bdf8', accent2: '#6366f1', bg: '#081326', fg: '#eef7ff' });
     };
@@ -405,13 +429,13 @@
     localStorage.setItem(VAULT_KEY, JSON.stringify(items.slice(0, 20)));
     document.getElementById('vault-name').value = '';
     loadVault();
-    notify('SAVED TO VAULT');
+    notify('Saved Preset!');
   };
   ['jsx', 'prompt', 'json'].forEach(t => {
     document.getElementById('exp-' + t).onclick = () => { exportTab = t; ['jsx', 'prompt', 'json'].forEach(x => document.getElementById('exp-' + x).classList.toggle('active', x === t)); generateOutput(); };
   });
-  document.getElementById('btn-copy').onclick = () => { const val = document.getElementById('code-out').value; navigator.clipboard?.writeText(val).catch(() => {}); notify('COPIED ' + exportTab.toUpperCase()); };
-  document.getElementById('btn-import-json').onclick = () => { try { commit(JSON.parse(document.getElementById('code-out').value)); notify('JSON LOADED'); } catch { notify('INVALID JSON'); } };
+  document.getElementById('btn-copy').onclick = () => { const val = document.getElementById('code-out').value; navigator.clipboard?.writeText(val).catch(() => {}); notify('Copied Code!'); };
+  document.getElementById('btn-import-json').onclick = () => { try { commit(JSON.parse(document.getElementById('code-out').value)); notify('Loaded Config!'); } catch { notify('Invalid JSON'); } };
   loadVault();
   renderDomShell();
 })();
