@@ -32,7 +32,7 @@ interface Project {
   liveUrl: string
   repoUrl: string
   tags: string[]
-  icon: 'synth' | 'forge' | 'orbit'
+  icon: 'synth' | 'forge' | 'orbit' | 'ledger'
 }
 
 const PROJECTS: Project[] = [
@@ -71,6 +71,18 @@ const PROJECTS: Project[] = [
     repoUrl: 'https://github.com/Nannidan/orbit-ops',
     tags: ['React 19', 'TypeScript', 'Live REST APIs', 'SVG Telemetry', 'Tailwind v4'],
     icon: 'orbit',
+  },
+  {
+    id: 'ledgerflow',
+    code: 'STAGE 04',
+    title: 'LEDGERFLOW // SAAS',
+    tagline: 'Light-Mode SaaS Revenue & Billing Dashboard',
+    description:
+      'Enterprise-style revenue and billing dashboard built in a clean light-mode design system featuring dynamic KPI cards, an interactive 30D/90D/12M revenue target chart, searchable and sortable invoice tables, a slide-over detail drawer, localStorage persistence, and one-click CSV export.',
+    liveUrl: 'https://ledgerflow-saas.vercel.app/',
+    repoUrl: 'https://github.com/Nannidan/ledgerflow-saas',
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'localStorage CRUD', 'CSV Export'],
+    icon: 'ledger',
   },
 ]
 
@@ -175,7 +187,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-2">
           {PROJECTS.map((project) => (
             <article key={project.id} className="hub-card flex flex-col justify-between p-6">
               <div>
@@ -190,7 +202,14 @@ export default function App() {
                   >
                     {project.icon === 'synth' ? (
                       <Cpu className="h-3 w-3" />
-                    ) : project.icon === 'forge' ? (
+                    ) : project.icon === 'ledger' ? (
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 3v18h18" />
+                    <path d="M18 17V9" />
+                    <path d="M13 17V5" />
+                    <path d="M8 17v-3" />
+                  </svg>
+                ) : project.icon === 'forge' ? (
                       <Layers className="h-3 w-3" />
                     ) : (
                       <Satellite className="h-3 w-3" />
