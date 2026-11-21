@@ -67,7 +67,7 @@ const PROJECTS: Project[] = [
     tagline: 'Live Voyager, ISS & Deep-Space Telemetry',
     description:
       'Real-time space dashboard tracking Voyager 1 & 2, New Horizons, JWST, and Hubble on a logarithmic radar alongside live 5s ISS orbital tracking, NASA Near-Earth Asteroids, and upcoming launches.',
-    liveUrl: 'https://orbit-ops.vercel.app/',
+    liveUrl: 'https://orbit-ops-theta.vercel.app/',
     repoUrl: 'https://github.com/Nannidan/orbit-ops',
     tags: ['React 19', 'TypeScript', 'Live REST APIs', 'SVG Telemetry', 'Tailwind v4'],
     icon: 'orbit',
