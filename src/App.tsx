@@ -67,7 +67,7 @@ const PROJECTS: Project[] = [
     tagline: 'Autism Epidemiology & Live API Telemetry',
     description:
       'Sensory-friendly dashboard comparing CDC diagnosis prevalence, NIH/IACC funding, DSM-5 criteria shifts, and 5 demographic/misinformation dimensions with live OpenAlex & ClinicalTrials.gov APIs.',
-    liveUrl: 'https://spectrum-lens.vercel.app/',
+    liveUrl: 'https://nannidan.github.io/spectrum-lens/',
     repoUrl: 'https://github.com/Nannidan/spectrum-lens',
     tags: ['React 19', 'TypeScript', 'Live APIs', 'URL State Sync', 'Low-Stim UI'],
     icon: 'spectrum',
