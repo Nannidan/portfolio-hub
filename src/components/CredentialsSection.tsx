@@ -80,7 +80,7 @@ export function CredentialsSection() {
         </div>
 
         <a
-          href="https://developers.google.com/profile"
+          href="https://developers.google.com/profile/u/109506602101295425311"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1 rounded-full border px-3 py-1 font-mono text-[11px] font-semibold transition-opacity hover:opacity-85"
