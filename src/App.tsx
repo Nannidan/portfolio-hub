@@ -79,7 +79,7 @@ const PROJECTS: Project[] = [
     tagline: 'Light-Mode SaaS Revenue & Billing Dashboard',
     description:
       'Enterprise-style revenue and billing dashboard built in a clean light-mode design system featuring dynamic KPI cards, an interactive 30D/90D/12M revenue target chart, searchable and sortable invoice tables, a slide-over detail drawer, localStorage persistence, and one-click CSV export.',
-    liveUrl: 'https://ledgerflow-saas.vercel.app/',
+    liveUrl: 'https://ledgerflow-saas-nine.vercel.app/',
     repoUrl: 'https://github.com/Nannidan/ledgerflow-saas',
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'localStorage CRUD', 'CSV Export'],
     icon: 'ledger',
