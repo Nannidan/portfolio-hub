@@ -149,15 +149,10 @@ export function CommandPalette({
 
   useEffect(() => {
     if (open) {
-      setQuery('')
-      setActiveIndex(0)
-      window.setTimeout(() => inputRef.current?.focus(), 20)
+      const id = window.setTimeout(() => inputRef.current?.focus(), 20)
+      return () => window.clearTimeout(id)
     }
   }, [open])
-
-  useEffect(() => {
-    setActiveIndex(0)
-  }, [query])
 
   useEffect(() => {
     if (!open) return
@@ -209,7 +204,10 @@ export function CommandPalette({
             ref={inputRef}
             type="text"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => {
+              setQuery(e.target.value)
+              setActiveIndex(0)
+            }}
             placeholder="Type a command, project name, or theme (↑↓ to navigate, Enter to run)..."
             className="w-full bg-transparent text-sm focus:outline-none"
             style={{ color: 'var(--ink)' }}
