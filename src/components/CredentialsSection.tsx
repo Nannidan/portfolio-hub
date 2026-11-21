@@ -1,75 +1,40 @@
-import { Award, CheckCircle2, ExternalLink, ShieldCheck } from 'lucide-react'
+import { Award, CheckCircle2, ExternalLink } from 'lucide-react'
 
-interface CredentialBadge {
-  id: string
+interface CompletedBadge {
   title: string
-  issuer: string
-  track: string
-  timeToEarn: string
-  status: 'Verified Track' | 'Active Lab'
-  url: string
+  category: string
 }
 
-const GOOGLE_BADGES: CredentialBadge[] = [
-  {
-    id: 'google-dev-program',
-    title: 'Google Developer Program & Builders Hub Member',
-    issuer: 'Google for Developers',
-    track: 'Cloud • AI Studio • Web Platform',
-    timeToEarn: 'Instant Profile Badge',
-    status: 'Verified Track',
-    url: 'https://developers.google.com/profile',
-  },
-  {
-    id: 'gemini-agents-gear',
-    title: 'Introduction to Agents & Google Agent Ecosystem (GEAR)',
-    issuer: 'Google Cloud Skills Boost',
-    track: 'Agentic AI Architecture & Tool Use',
-    timeToEarn: '~45 min Free Skill Badge',
-    status: 'Active Lab',
-    url: 'https://www.cloudskillsboost.google/paths',
-  },
-  {
-    id: 'prompt-design-vertex',
-    title: 'Prompt Design in Vertex AI & Multimodal Studio',
-    issuer: 'Google Cloud Skills Boost',
-    track: 'Multimodal Prompt Engineering & Evaluation',
-    timeToEarn: '~1.5 hr Free Skill Badge',
-    status: 'Active Lab',
-    url: 'https://www.cloudskillsboost.google/course_templates/976',
-  },
-  {
-    id: 'web-dev-accessibility',
-    title: 'Learn Accessibility (WCAG 2.1 & ARIA Engineering)',
-    issuer: 'Google web.dev',
-    track: 'Contrast, Focus Management & Assistive Tech',
-    timeToEarn: 'Free Developer Course',
-    status: 'Verified Track',
-    url: 'https://web.dev/learn/accessibility',
-  },
+const COMPLETED_BADGES: CompletedBadge[] = [
+  { title: 'Google Developer Program', category: 'Core Profile' },
+  { title: 'AI-ML & Gemini Integration', category: 'Generative AI' },
+  { title: 'Passkeys & Auth Architecture', category: 'Security' },
+  { title: 'Kotlin Multiplatform', category: 'Cross-Platform' },
+  { title: 'Modern UI & Compose Systems', category: 'UI Architecture' },
+  { title: 'Accessibility & Inclusive UX', category: 'WCAG / A11y' },
+  { title: 'UX & Large-Screen Adaptive UI', category: 'Design Systems' },
+  { title: 'Agentic AI & Prompt Engineering', category: 'AI Studio' },
 ]
 
 export function CredentialsSection() {
   return (
     <section
       aria-labelledby="credentials-heading"
-      className="mt-12 rounded-2xl border p-6"
+      className="mt-8 rounded-xl border px-4 py-3.5 sm:px-5"
       style={{
         backgroundColor: 'var(--surface)',
         borderColor: 'var(--border)',
       }}
     >
-      <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
-        <div>
-          <span
-            className="inline-flex items-center gap-1.5 font-mono text-xs font-bold"
-            style={{ color: 'var(--accent)' }}
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <div className="flex items-center gap-2">
+          <Award className="h-3.5 w-3.5 shrink-0" style={{ color: 'var(--accent)' }} />
+          <h2
+            id="credentials-heading"
+            className="font-mono text-[11px] font-bold tracking-wider uppercase"
+            style={{ color: 'var(--ink)' }}
           >
-            <Award className="h-4 w-4" />
-            CONTINUOUS ENGINEERING &amp; GOOGLE DEVELOPER CREDENTIALS
-          </span>
-          <h2 id="credentials-heading" className="mt-1 text-lg font-bold tracking-tight">
-            Google Developer Program &amp; Verifiable Skill Tracks
+            Google for Developers — Earned Skill Badges
           </h2>
         </div>
 
@@ -77,56 +42,34 @@ export function CredentialsSection() {
           href="https://developers.google.com/profile"
           target="_blank"
           rel="noopener noreferrer"
-          className="hub-btn-secondary inline-flex shrink-0 items-center gap-1.5 px-3.5 py-2 font-mono text-xs font-semibold"
+          className="inline-flex items-center gap-1 font-mono text-[11px] font-semibold transition-opacity hover:opacity-80"
+          style={{ color: 'var(--accent)' }}
         >
-          <ShieldCheck className="h-3.5 w-3.5" style={{ color: 'var(--accent)' }} />
-          <span>Google Developer Profile</span>
+          <span>Verified Profile</span>
           <ExternalLink className="h-3 w-3" />
         </a>
       </div>
 
-      <div className="mt-5 grid gap-3.5 sm:grid-cols-2 lg:grid-cols-4">
-        {GOOGLE_BADGES.map((badge) => (
-          <a
-            key={badge.id}
-            href={badge.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex flex-col justify-between rounded-xl border p-4 transition-colors hover:border-[var(--accent)]"
+      <div className="mt-2.5 flex flex-wrap gap-1.5">
+        {COMPLETED_BADGES.map((badge) => (
+          <span
+            key={badge.title}
+            className="hub-pill inline-flex items-center gap-1.5 border px-2.5 py-1 text-xs"
             style={{
               backgroundColor: 'var(--surface-alt)',
               borderColor: 'var(--border)',
+              color: 'var(--ink)',
             }}
           >
-            <div>
-              <div className="flex items-center justify-between gap-2">
-                <span
-                  className="inline-flex items-center gap-1 font-mono text-[10px] font-bold"
-                  style={{ color: 'var(--accent)' }}
-                >
-                  <CheckCircle2 className="h-3 w-3" />
-                  {badge.issuer}
-                </span>
-                <ExternalLink
-                  className="h-3 w-3 opacity-50 transition-opacity group-hover:opacity-100"
-                  style={{ color: 'var(--accent)' }}
-                />
-              </div>
-
-              <h3 className="mt-2 text-xs font-bold leading-snug">{badge.title}</h3>
-              <p className="mt-1 text-[11px]" style={{ color: 'var(--muted)' }}>
-                {badge.track}
-              </p>
-            </div>
-
-            <div
-              className="mt-3 flex items-center justify-between border-t pt-2 font-mono text-[10px]"
-              style={{ borderColor: 'var(--border)', color: 'var(--muted)' }}
+            <CheckCircle2 className="h-3 w-3 shrink-0 text-emerald-400" />
+            <span className="font-medium">{badge.title}</span>
+            <span
+              className="font-mono text-[10px]"
+              style={{ color: 'var(--muted)' }}
             >
-              <span>{badge.status}</span>
-              <span style={{ color: 'var(--accent-2)' }}>{badge.timeToEarn}</span>
-            </div>
-          </a>
+              • {badge.category}
+            </span>
+          </span>
         ))}
       </div>
     </section>
