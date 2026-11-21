@@ -49,24 +49,12 @@ export const PROJECTS: Project[] = [
     tags: ['React 19', 'TypeScript', 'Tailwind v4', 'localStorage CRUD', 'CSV Export'],
     icon: 'ledger',
   },
-  {
-    id: 'spectrum-lens',
-    code: 'PROJECT 05',
-    title: 'SPECTRUM // LENS',
-    tagline: 'Sensory-Friendly Epidemiology & Live Research APIs',
-    description:
-      'Autism-friendly, low-stimulation dashboard comparing 8 primary-sourced diagnosis, funding, DSM-5, equity, and misinformation datasets alongside live OpenAlex & ClinicalTrials.gov v2 APIs and an AI trait-reflection probability estimator.',
-    liveUrl: 'https://nannidan.github.io/spectrum-lens/',
-    repoUrl: 'https://github.com/Nannidan/spectrum-lens',
-    tags: ['React 19', 'TypeScript', 'Live APIs', 'URL State Sync', 'Low-Stim UI'],
-    icon: 'spectrum',
-  },
 ]
 
 const HERO_COPY = {
   badge: 'DANIEL NANNINGA // FRONT-END & AI UI ENGINEER',
   headline: 'Production Front-End & Interactive UI Systems.',
-  sub: 'Five shipped web applications engineered with React 19, TypeScript, and Tailwind CSS v4—spanning Web Audio DSP, design-system accessibility tooling, live telemetry, and enterprise SaaS.',
+  sub: 'Shipped web applications engineered with React 19, TypeScript, and Tailwind CSS v4—spanning Web Audio DSP, design-system accessibility tooling, live telemetry, and enterprise SaaS.',
 }
 
 export const THEME_META: Record<ThemeId, ThemeMeta> = {
