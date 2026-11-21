@@ -1,4 +1,4 @@
-import { Activity, ArrowUpRight, BarChart3, Cpu, Layers, Satellite } from 'lucide-react'
+import { ArrowUpRight, Atom, BarChart3, Cpu, GitFork, Layers, Satellite } from 'lucide-react'
 import type { Project, VisualStyle } from '../types/hub'
 
 interface ProjectCardProps {
@@ -25,8 +25,10 @@ export function ProjectCard({ project, style }: ProjectCardProps) {
               <BarChart3 className="h-3 w-3" />
             ) : project.icon === 'forge' ? (
               <Layers className="h-3 w-3" />
-            ) : project.icon === 'spectrum' ? (
-              <Activity className="h-3 w-3" />
+            ) : project.icon === 'nexus' ? (
+              <GitFork className="h-3 w-3" />
+            ) : project.icon === 'verlet' ? (
+              <Atom className="h-3 w-3" />
             ) : (
               <Satellite className="h-3 w-3" />
             )}

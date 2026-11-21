@@ -113,7 +113,7 @@ export default function App() {
         </div>
 
         {/* Modular Project Grid */}
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.map((project) => (
             <ProjectCard key={project.id} project={project} style={style} />
           ))}

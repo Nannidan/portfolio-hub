@@ -1,7 +1,7 @@
 export type ThemeId = 'slate' | 'emerald' | 'indigo'
 export type BrightnessMode = 'dark' | 'light'
 export type VisualStyle = 'modern' | 'retro'
-export type ProjectIconId = 'synth' | 'forge' | 'orbit' | 'ledger' | 'spectrum'
+export type ProjectIconId = 'synth' | 'forge' | 'orbit' | 'ledger' | 'nexus' | 'verlet'
 
 export interface Project {
   id: string

@@ -49,12 +49,36 @@ export const PROJECTS: Project[] = [
     tags: ['React 19', 'TypeScript', 'Tailwind v4', 'localStorage CRUD', 'CSV Export'],
     icon: 'ledger',
   },
+  {
+    id: 'nexus-dag',
+    code: 'PROJECT 05',
+    title: 'NEXUS // DAG',
+    tagline: '2D Spatial Node-Graph & Topological Pipeline Engine',
+    description:
+      'Interactive 2D spatial workflow canvas with pointer-captured node dragging, cubic Bézier SVG wire routing, DFS cycle prevention, Kahn’s level-order topological DAG execution solver, live token/latency trace inspector, and JSON export.',
+    liveUrl: 'https://nannidan.github.io/nexus-dag/',
+    repoUrl: 'https://github.com/Nannidan/nexus-dag',
+    tags: ['React 19', 'TypeScript', '2D Node Graph', 'Topological Solver', 'SVG Bézier'],
+    icon: 'nexus',
+  },
+  {
+    id: 'verlet-lab',
+    code: 'PROJECT 06',
+    title: 'VERLET // LAB',
+    tagline: '60fps 2D Verlet Physics & Constraint Relaxation Engine',
+    description:
+      'Real-time HTML5 Canvas numerical physics simulator implementing symplectic Verlet integration, iterative Gauss-Seidel constraint relaxation, tensile strain color-mapping, dynamic link fracture, 3 interactive pointer force tools, and a live frame-time profiler.',
+    liveUrl: 'https://nannidan.github.io/verlet-lab/',
+    repoUrl: 'https://github.com/Nannidan/verlet-lab',
+    tags: ['React 19', 'TypeScript', 'HTML5 Canvas 60fps', 'Verlet Physics', 'Gauss-Seidel'],
+    icon: 'verlet',
+  },
 ]
 
 const HERO_COPY = {
   badge: 'DANIEL NANNINGA // FRONT-END & AI UI ENGINEER',
   headline: 'Production Front-End & Interactive UI Systems.',
-  sub: 'Shipped web applications engineered with React 19, TypeScript, and Tailwind CSS v4—spanning Web Audio DSP, design-system accessibility tooling, live telemetry, and enterprise SaaS.',
+  sub: 'Six shipped web applications engineered with React 19, TypeScript, and Tailwind CSS v4—spanning Web Audio DSP, design-system accessibility, live telemetry, SaaS workflows, 2D node-graph DAG engines, and 60fps Canvas physics.',
 }
 
 export const THEME_META: Record<ThemeId, ThemeMeta> = {
