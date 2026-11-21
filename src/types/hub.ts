@@ -1,4 +1,4 @@
-export type ThemeId = 'cyberpunk' | 'mario' | 'kpop'
+export type ThemeId = 'slate' | 'emerald' | 'indigo'
 export type BrightnessMode = 'dark' | 'light'
 export type VisualStyle = 'modern' | 'retro'
 export type ProjectIconId = 'synth' | 'forge' | 'orbit' | 'ledger' | 'spectrum'
@@ -17,6 +17,7 @@ export interface Project {
 
 export interface ThemeMeta {
   label: string
+  swatch: string
   badge: string
   headline: string
   sub: string

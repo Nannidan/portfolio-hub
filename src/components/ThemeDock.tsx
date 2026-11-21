@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Layers, Monitor, Moon, Palette, Sliders, Sparkles, Sun, Terminal, X } from 'lucide-react'
+import { Monitor, Moon, Palette, Sun, Terminal, X } from 'lucide-react'
 import { THEME_META } from '../data/projects'
 import type { BrightnessMode, ThemeId, VisualStyle } from '../types/hub'
 
@@ -71,9 +71,8 @@ export function ThemeDock({
             <span className="block font-mono text-[10px] font-semibold uppercase" style={{ color: 'var(--muted)' }}>
               Accent Palette
             </span>
-            {(['cyberpunk', 'mario', 'kpop'] as ThemeId[]).map((id) => {
+            {(['slate', 'emerald', 'indigo'] as ThemeId[]).map((id) => {
               const active = theme === id
-              const Icon = id === 'cyberpunk' ? Layers : id === 'mario' ? Sliders : Sparkles
               return (
                 <button
                   key={id}
@@ -87,7 +86,10 @@ export function ThemeDock({
                   }}
                 >
                   <span className="inline-flex items-center gap-2">
-                    <Icon className="h-3.5 w-3.5" />
+                    <span
+                      className="h-2.5 w-2.5 rounded-full border border-white/20"
+                      style={{ backgroundColor: THEME_META[id].swatch }}
+                    />
                     {THEME_META[id].label}
                   </span>
                   {active && <span className="font-mono text-[10px]">ACTIVE</span>}
@@ -96,7 +98,7 @@ export function ThemeDock({
             })}
           </div>
 
-          {/* Day / Night Mode Toggle */}
+          {/* Dark / Light Surface Mode Toggle */}
           <div className="mt-3.5 space-y-1.5">
             <span className="block font-mono text-[10px] font-semibold uppercase" style={{ color: 'var(--muted)' }}>
               Surface Mode
@@ -124,7 +126,7 @@ export function ThemeDock({
             </div>
           </div>
 
-          {/* Rounded vs Sharp Technical Geometry */}
+          {/* Rounded vs Technical Sharp Geometry */}
           <div className="mt-3.5 space-y-1.5">
             <span className="block font-mono text-[10px] font-semibold uppercase" style={{ color: 'var(--muted)' }}>
               UI Geometry

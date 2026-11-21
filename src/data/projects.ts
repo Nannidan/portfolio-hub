@@ -63,23 +63,26 @@ export const PROJECTS: Project[] = [
   },
 ]
 
+const HERO_COPY = {
+  badge: 'DANIEL NANNINGA // FRONT-END & AI UI ENGINEER',
+  headline: 'Production Front-End & Interactive UI Systems.',
+  sub: 'Five shipped web applications engineered with React 19, TypeScript, and Tailwind CSS v4—spanning Web Audio DSP, design-system accessibility tooling, live telemetry, and enterprise SaaS.',
+}
+
 export const THEME_META: Record<ThemeId, ThemeMeta> = {
-  cyberpunk: {
-    label: 'Midnight Cyan',
-    badge: 'DANIEL NANNINGA // FRONT-END & AI UI ENGINEER',
-    headline: 'Production Front-End & Interactive UI Systems.',
-    sub: 'Five shipped web applications engineered with React 19, TypeScript, and Tailwind CSS v4—spanning Web Audio DSP, design-system accessibility tooling, live telemetry, and enterprise SaaS.',
+  slate: {
+    label: 'Obsidian & Cyan',
+    swatch: '#0ea5e9',
+    ...HERO_COPY,
   },
-  mario: {
-    label: 'Warm Amber',
-    badge: 'DANIEL NANNINGA // FRONT-END & AI UI ENGINEER',
-    headline: 'Production Front-End & Interactive UI Systems.',
-    sub: 'Five shipped web applications engineered with React 19, TypeScript, and Tailwind CSS v4—spanning Web Audio DSP, design-system accessibility tooling, live telemetry, and enterprise SaaS.',
+  emerald: {
+    label: 'Nordic Emerald',
+    swatch: '#10b981',
+    ...HERO_COPY,
   },
-  kpop: {
-    label: 'Prism Violet',
-    badge: 'DANIEL NANNINGA // FRONT-END & AI UI ENGINEER',
-    headline: 'Production Front-End & Interactive UI Systems.',
-    sub: 'Five shipped web applications engineered with React 19, TypeScript, and Tailwind CSS v4—spanning Web Audio DSP, design-system accessibility tooling, live telemetry, and enterprise SaaS.',
+  indigo: {
+    label: 'Executive Indigo',
+    swatch: '#6366f1',
+    ...HERO_COPY,
   },
 }

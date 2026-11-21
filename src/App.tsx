@@ -9,7 +9,7 @@ import type { BrightnessMode, ThemeId, VisualStyle } from './types/hub'
 export default function App() {
   const [theme, setTheme] = useState<ThemeId>(() => {
     const saved = window.localStorage.getItem('hub-theme')
-    return saved === 'cyberpunk' || saved === 'mario' || saved === 'kpop' ? saved : 'cyberpunk'
+    return saved === 'slate' || saved === 'emerald' || saved === 'indigo' ? saved : 'slate'
   })
   const [mode, setMode] = useState<BrightnessMode>(() => {
     return window.localStorage.getItem('hub-mode') === 'light' ? 'light' : 'dark'

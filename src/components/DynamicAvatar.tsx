@@ -14,15 +14,15 @@ const VARIANTS: { id: AvatarVariant; label: string }[] = [
   { id: 'auto', label: 'AUTO' },
   { id: 'holo', label: 'HOLO' },
   { id: 'crt', label: 'SCAN' },
-  { id: 'cyber', label: 'DUOTONE' },
+  { id: 'cyber', label: 'DUO' },
   { id: 'noir', label: 'MONO' },
   { id: 'pixel', label: 'PIXEL' },
 ]
 
 const THEME_PARTICLE_COLORS: Record<ThemeId, [string, string]> = {
-  cyberpunk: ['#06b6d4', '#ff007f'],
-  mario: ['#facc15', '#ef4444'],
-  kpop: ['#ff2a85', '#a855f7'],
+  slate: ['#0ea5e9', '#38bdf8'],
+  emerald: ['#10b981', '#34d399'],
+  indigo: ['#6366f1', '#818cf8'],
 }
 
 interface Particle {
@@ -72,7 +72,7 @@ export function DynamicAvatar({ theme, mode, style }: DynamicAvatarProps) {
         vx: Math.cos(angle) * speed,
         vy: Math.sin(angle) * speed,
         size: isSquare ? 2.5 : 2,
-        alpha: 0.8,
+        alpha: 0.75,
         life: 0,
         maxLife: 22 + Math.random() * 16,
         color: i % 2 === 0 ? c1 : c2,
@@ -109,7 +109,7 @@ export function DynamicAvatar({ theme, mode, style }: DynamicAvatarProps) {
           vx: (Math.random() - 0.5) * 0.35,
           vy: -(0.35 + Math.random() * 0.6),
           size: isSquare ? 2.2 : 1.6 + Math.random() * 1.2,
-          alpha: mode === 'dark' ? 0.6 : 0.4,
+          alpha: mode === 'dark' ? 0.55 : 0.35,
           life: 0,
           maxLife: 45 + Math.random() * 35,
           color: Math.random() > 0.5 ? c1 : c2,
@@ -141,7 +141,7 @@ export function DynamicAvatar({ theme, mode, style }: DynamicAvatarProps) {
       if (burstRef.current > 0.02) {
         const b = burstRef.current
         ctx.save()
-        ctx.globalAlpha = b * 0.3
+        ctx.globalAlpha = b * 0.28
         const scanY = ((1 - b) * h) % h
         ctx.fillStyle = c1
         ctx.fillRect(0, scanY, w, 1.5)
@@ -188,7 +188,7 @@ export function DynamicAvatar({ theme, mode, style }: DynamicAvatarProps) {
         onPointerMove={handlePointerMove}
         onPointerLeave={handlePointerLeave}
         aria-label={`Daniel Nanninga portrait. Visual filter: ${variant.label}. Click to cycle portrait treatment.`}
-        title={`Click to cycle filter (${variant.label})`}
+        title={`Hover to morph • Click to cycle filter (${variant.label})`}
         className="avatar-shell group block h-24 w-24 cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] sm:h-28 sm:w-28"
         style={{
           transform: hovered
@@ -218,7 +218,7 @@ export function DynamicAvatar({ theme, mode, style }: DynamicAvatarProps) {
               {!modernFailed && (
                 <img
                   src="./avatar-modern.jpg"
-                  alt="Daniel Nanninga portrait"
+                  alt="Daniel Nanninga studio portrait"
                   onError={() =>
                     setImgFailed((prev) => ({ ...prev, './avatar-modern.jpg': true }))
                   }
@@ -255,7 +255,6 @@ export function DynamicAvatar({ theme, mode, style }: DynamicAvatarProps) {
         </div>
       </button>
 
-      {/* Active filter pill (only shown when non-default filter is selected) */}
       {variant.id !== 'auto' && (
         <span
           className="hub-pill pointer-events-none absolute -top-1.5 -left-1.5 inline-flex items-center gap-0.5 border px-1.5 py-0.5 font-mono text-[9px] font-bold shadow-md"
@@ -270,9 +269,8 @@ export function DynamicAvatar({ theme, mode, style }: DynamicAvatarProps) {
         </span>
       )}
 
-      {/* Subtle Day / Night corner badge */}
       <span
-        title={mode === 'dark' ? 'Dark theme active' : 'Light theme active'}
+        title={mode === 'dark' ? 'Dark mode active' : 'Light mode active'}
         className="hub-pill pointer-events-none absolute -top-1.5 -right-1.5 flex h-6 w-6 items-center justify-center border shadow-sm"
         style={{
           backgroundColor: 'var(--surface)',
