@@ -1,4 +1,4 @@
-import { Activity, ArrowUpRight, BarChart3, Code2, Cpu, Layers, Satellite, Sparkles } from 'lucide-react'
+import { Activity, ArrowUpRight, BarChart3, Code2, Cpu, Layers, Satellite } from 'lucide-react'
 import type { Project, VisualStyle } from '../types/hub'
 
 interface ProjectCardProps {
@@ -32,13 +32,11 @@ export function ProjectCard({ project, style }: ProjectCardProps) {
             )}
             {project.code}
           </span>
-
-          <Sparkles className="h-4 w-4" style={{ color: 'var(--accent-2)' }} />
         </div>
 
         <h2
-          className={`pixel-heading mt-4 font-bold tracking-tight ${
-            style === 'retro' ? 'text-base' : 'text-2xl'
+          className={`mt-4 font-bold tracking-tight ${
+            style === 'retro' ? 'font-mono text-lg' : 'text-2xl'
           }`}
         >
           {project.title}

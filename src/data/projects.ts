@@ -3,7 +3,7 @@ import type { Project, ThemeId, ThemeMeta } from '../types/hub'
 export const PROJECTS: Project[] = [
   {
     id: 'neonsynth',
-    code: 'STAGE 01',
+    code: 'PROJECT 01',
     title: 'AUDIOSYNTH // HZ',
     tagline: 'Browser Modular Synthesizer & Multimodal Mastering DSP',
     description:
@@ -15,9 +15,9 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'forge-ui',
-    code: 'STAGE 02',
+    code: 'PROJECT 02',
     title: 'FORGE // UI',
-    tagline: 'Component Workbench & AI Prompt Studio',
+    tagline: 'Component Workbench, WCAG Auditor & AI Prompt Studio',
     description:
       'Interactive React + Tailwind v4 design-token studio featuring Default/Loading/Disabled state simulation, live WCAG 2.1 contrast auditing, localStorage Component Vault CRUD, Undo/Redo history, and 3-format code export.',
     liveUrl: 'https://forge-ui-studio.vercel.app/',
@@ -27,7 +27,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'orbit-ops',
-    code: 'STAGE 03',
+    code: 'PROJECT 03',
     title: 'ORBIT // OPS',
     tagline: 'Live Voyager, ISS & Deep-Space Telemetry',
     description:
@@ -39,9 +39,9 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'ledgerflow',
-    code: 'STAGE 04',
+    code: 'PROJECT 04',
     title: 'LEDGERFLOW // SAAS',
-    tagline: 'Light-Mode SaaS Revenue & Billing Dashboard',
+    tagline: 'Enterprise SaaS Revenue & Billing Operations',
     description:
       'Enterprise-style revenue and billing dashboard built in a clean light-mode design system featuring dynamic KPI cards, an interactive 30D/90D/12M revenue target chart, searchable and sortable invoice tables, a slide-over detail drawer, localStorage persistence, and one-click CSV export.',
     liveUrl: 'https://ledgerflow-saas-nine.vercel.app/',
@@ -51,7 +51,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'spectrum-lens',
-    code: 'STAGE 05',
+    code: 'PROJECT 05',
     title: 'SPECTRUM // LENS',
     tagline: 'Sensory-Friendly Epidemiology & Live Research APIs',
     description:
@@ -65,21 +65,21 @@ export const PROJECTS: Project[] = [
 
 export const THEME_META: Record<ThemeId, ThemeMeta> = {
   cyberpunk: {
-    label: 'Cyberpunk',
-    badge: 'NETRUNNER // PORTFOLIO HUB',
-    headline: 'Select a live module to jack in.',
-    sub: 'High-contrast interactive web apps engineered with React 19, TypeScript, and Tailwind CSS v4.',
+    label: 'Midnight Cyan',
+    badge: 'DANIEL NANNINGA // FRONT-END & AI UI ENGINEER',
+    headline: 'Production Front-End & Interactive UI Systems.',
+    sub: 'Five shipped web applications engineered with React 19, TypeScript, and Tailwind CSS v4—spanning Web Audio DSP, design-system accessibility tooling, live telemetry, and enterprise SaaS.',
   },
   mario: {
-    label: 'Super Mario',
-    badge: 'WORLD 1-1 // STAGE SELECT',
-    headline: 'Choose a world to jump into!',
-    sub: 'Power-up your review: launch a live interactive web app below or inspect the source code.',
+    label: 'Warm Amber',
+    badge: 'DANIEL NANNINGA // FRONT-END & AI UI ENGINEER',
+    headline: 'Production Front-End & Interactive UI Systems.',
+    sub: 'Five shipped web applications engineered with React 19, TypeScript, and Tailwind CSS v4—spanning Web Audio DSP, design-system accessibility tooling, live telemetry, and enterprise SaaS.',
   },
   kpop: {
-    label: 'KPop Demon Hunters',
-    badge: 'HUNTER STAGE // ENCORE MODE',
-    headline: 'Pick your spotlight & slay the demo.',
-    sub: 'Stage-ready front-end engineering blending razor-sharp UI systems with interactive browser APIs.',
+    label: 'Prism Violet',
+    badge: 'DANIEL NANNINGA // FRONT-END & AI UI ENGINEER',
+    headline: 'Production Front-End & Interactive UI Systems.',
+    sub: 'Five shipped web applications engineered with React 19, TypeScript, and Tailwind CSS v4—spanning Web Audio DSP, design-system accessibility tooling, live telemetry, and enterprise SaaS.',
   },
 }

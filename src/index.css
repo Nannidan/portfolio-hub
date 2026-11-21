@@ -195,7 +195,7 @@
 }
 
 [data-style="retro"] .pixel-heading {
-  font-family: 'Press Start 2P', monospace;
+  font-family:  'JetBrains Mono', monospace;
   line-height: 1.45;
   letter-spacing: 0.02em;
 }
@@ -217,7 +217,7 @@
   border-radius: 0px !important;
   border: 3px solid var(--ink);
   box-shadow: 4px 4px 0px var(--shadow-hard);
-  font-family: 'Press Start 2P', monospace;
+  font-family:  'JetBrains Mono', monospace;
   font-size: 0.68rem;
 }
 
@@ -272,7 +272,7 @@ body {
 
 /* Retro 8-Bit mode still overrides display font to pixel art */
 [data-style="retro"] .pixel-heading {
-  font-family: 'Press Start 2P', monospace !important;
+  font-family:  'JetBrains Mono', monospace !important;
   text-transform: uppercase;
   line-height: 1.45;
   letter-spacing: 0.02em;
