@@ -8,52 +8,52 @@ interface CompletedBadge {
 
 const COMPLETED_BADGES: CompletedBadge[] = [
   {
+    title: 'Gemini Agent Ready (GEAR)',
+    category: 'Nov 2026 • Agentic AI',
+    imageUrl:
+      'https://www.gstatic.com/googledevelopers/profile/badges/community/gear/badge.svg',
+  },
+  {
+    title: 'Developer Program Premium',
+    category: 'Feb 2026 • Cloud & AI',
+    imageUrl:
+      'https://www.gstatic.com/googledevelopers/profile/badges/community/innovators/cloud/innovators_plus/badge.svg',
+  },
+  {
+    title: 'Antigravity Arcade: Code Launch',
+    category: 'Nov 2026 • Solution Build',
+    imageUrl:
+      'https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/antigravity-arcade/action/badge.svg',
+  },
+  {
+    title: 'Antigravity Arcade Architecture',
+    category: 'Nov 2026 • Systems Solution',
+    imageUrl:
+      'https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/antigravity-arcade/view/badge.svg',
+  },
+  {
+    title: 'Race Condition Solution',
+    category: 'Nov 2026 • Concurrency',
+    imageUrl:
+      'https://www.gstatic.com/googledevelopers/profile/badges/playlists/solutions/race-condition/view/badge.svg',
+  },
+  {
+    title: 'Android Studio Developer',
+    category: 'Jun 2025 • Native Tooling',
+    imageUrl:
+      'https://www.gstatic.com/googledevelopers/profile/badges/activity/android/install-android-studio/badge.svg',
+  },
+  {
     title: 'AI-ML & Gemini Solutions',
-    category: 'Generative AI',
+    category: 'Nov 2026 • Generative AI',
     imageUrl:
       'https://developers.google.com/profile/badges/playlists/android/android-ai-overview/badge.svg',
   },
   {
-    title: 'Passkeys & Auth Architecture',
-    category: 'Security',
+    title: 'Google Developer Program',
+    category: 'May 2025 • Verified Member',
     imageUrl:
-      'https://developers.google.com/profile/badges/playlists/android/passkeys/badge.svg',
-  },
-  {
-    title: 'Kotlin Multiplatform',
-    category: 'Cross-Platform',
-    imageUrl:
-      'https://developers.google.com/profile/badges/playlists/android/kotlin-multiplatform/badge.svg',
-  },
-  {
-    title: 'Modern App Architecture',
-    category: 'Systems Design',
-    imageUrl:
-      'https://developers.google.com/profile/badges/playlists/android/android-architecture/badge.svg',
-  },
-  {
-    title: 'User Experience & UI Craft',
-    category: 'UX Engineering',
-    imageUrl:
-      'https://developers.google.com/profile/badges/playlists/android/improve-user-experience/badge.svg',
-  },
-  {
-    title: 'Modern UI Foundations',
-    category: 'Declarative UI',
-    imageUrl:
-      'https://developers.google.com/profile/badges/playlists/android/android-basics-compose-unit-1-pathway-1/badge.svg',
-  },
-  {
-    title: 'Interactive UI Tooling',
-    category: 'Component Studio',
-    imageUrl:
-      'https://developers.google.com/profile/badges/playlists/android/android-basics-compose-unit-1-pathway-2/badge.svg',
-  },
-  {
-    title: 'Composable Layout Systems',
-    category: 'Design Systems',
-    imageUrl:
-      'https://developers.google.com/profile/badges/playlists/android/android-basics-compose-unit-1-pathway-3/badge.svg',
+      'https://www.gstatic.com/googledevelopers/profile/badges/profile/created-profile/created_profile.svg',
   },
 ]
 
@@ -75,7 +75,7 @@ export function CredentialsSection() {
             className="font-mono text-xs font-bold tracking-wider uppercase"
             style={{ color: 'var(--ink)' }}
           >
-            Google for Developers — Earned Skill Badges
+            Google for Developers — Verified Profile Badges
           </h2>
         </div>
 
@@ -97,8 +97,11 @@ export function CredentialsSection() {
 
       <div className="mt-3.5 grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
         {COMPLETED_BADGES.map((badge) => (
-          <div
+          <a
             key={badge.title}
+            href="https://developers.google.com/profile/u/109506602101295425311"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-3 rounded-full border py-1.5 pr-4 pl-2 transition-transform hover:scale-[1.015]"
             style={{
               backgroundColor: 'var(--surface-alt)',
@@ -134,7 +137,7 @@ export function CredentialsSection() {
                 {badge.category}
               </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </section>
