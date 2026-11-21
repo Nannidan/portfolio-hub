@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Code2, FileText, Terminal } from 'lucide-react'
+import { Code2, FileText, Mail, Phone, Terminal } from 'lucide-react'
 import { DynamicAvatar } from './components/DynamicAvatar'
 import { ProjectCard } from './components/ProjectCard'
 import { ThemeDock } from './components/ThemeDock'
@@ -82,7 +82,21 @@ export default function App() {
                 className="hub-btn-primary inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold"
               >
                 <FileText className="h-3.5 w-3.5" />
-                <span>1-Page Engineering Resume (PDF)</span>
+                <span>A4 Resume (PDF)</span>
+              </a>
+              <a
+                href="mailto:NanningaDan@gmail.com"
+                className="hub-btn-secondary inline-flex items-center gap-1.5 px-3.5 py-2 font-mono text-xs font-semibold"
+              >
+                <Mail className="h-3.5 w-3.5" />
+                <span>NanningaDan@gmail.com</span>
+              </a>
+              <a
+                href="tel:+12265686968"
+                className="hub-btn-secondary inline-flex items-center gap-1.5 px-3.5 py-2 font-mono text-xs font-semibold"
+              >
+                <Phone className="h-3.5 w-3.5" />
+                <span>(226) 568-6968</span>
               </a>
               <a
                 href="https://github.com/Nannidan"
@@ -91,7 +105,7 @@ export default function App() {
                 className="hub-btn-secondary inline-flex items-center gap-1.5 px-3.5 py-2 font-mono text-xs font-semibold"
               >
                 <Code2 className="h-3.5 w-3.5" />
-                <span>GitHub @Nannidan</span>
+                <span>@Nannidan</span>
               </a>
             </div>
           </div>
@@ -129,6 +143,20 @@ export default function App() {
               resume
             </a>
             <a
+              href="mailto:NanningaDan@gmail.com"
+              className="inline-flex items-center gap-1.5 font-mono font-semibold transition-opacity hover:opacity-80"
+              style={{ color: 'var(--ink)' }}
+            >
+              NanningaDan@gmail.com
+            </a>
+            <a
+              href="tel:+12265686968"
+              className="inline-flex items-center gap-1.5 font-mono font-semibold transition-opacity hover:opacity-80"
+              style={{ color: 'var(--muted)' }}
+            >
+              (226) 568-6968
+            </a>
+            <a
               href="https://github.com/Nannidan/portfolio-hub"
               target="_blank"
               rel="noopener noreferrer"
@@ -137,15 +165,6 @@ export default function App() {
             >
               <Code2 className="h-3.5 w-3.5" />
               portfolio-hub
-            </a>
-            <a
-              href="https://github.com/Nannidan"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 font-mono font-semibold transition-opacity hover:opacity-80"
-              style={{ color: 'var(--muted)' }}
-            >
-              github.com/Nannidan
             </a>
           </div>
         </div>

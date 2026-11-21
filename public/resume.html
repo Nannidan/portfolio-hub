@@ -3,36 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Daniel Nanninga — Front-End &amp; AI UI Engineer Resume</title>
+    <title>Daniel Nanninga — Front-End &amp; Creative AI UI Engineer Resume</title>
     <style>
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
       :root {
-        --ink: #111827;
-        --muted: #4b5563;
+        --ink: #0f172a;
+        --body: #334155;
+        --muted: #475569;
         --accent: #0284c7;
-        --border: #e5e7eb;
+        --accent-soft: #f0f9ff;
+        --border: #cbd5e1;
+        --surface-soft: #f8fafc;
       }
       * {
         box-sizing: border-box;
       }
       body {
         margin: 0;
-        padding: 32px 20px;
+        padding: 24px 16px;
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         color: var(--ink);
-        background: #f3f4f6;
-        line-height: 1.5;
-      }
-      .sheet {
-        max-width: 840px;
-        margin: 0 auto;
-        background: #ffffff;
-        padding: 40px 48px;
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        background: #e2e8f0;
+        line-height: 1.45;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
       .toolbar {
-        max-width: 840px;
-        margin: 0 auto 16px;
+        width: 210mm;
+        max-width: 100%;
+        margin: 0 auto 14px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -56,9 +58,23 @@
         color: #ffffff;
         border-color: var(--accent);
       }
+      /* Exact A4 Sheet (210mm x 297mm) with full-page vertical layout */
+      .sheet {
+        width: 210mm;
+        min-height: 297mm;
+        max-width: 100%;
+        margin: 0 auto;
+        background: #ffffff;
+        padding: 14mm 15mm;
+        border-radius: 6px;
+        box-shadow: 0 12px 36px rgba(15, 23, 42, 0.14);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
       header {
-        border-bottom: 2px solid var(--ink);
-        padding-bottom: 16px;
+        border-bottom: 2.5px solid var(--ink);
+        padding-bottom: 10px;
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
@@ -68,62 +84,100 @@
       h1 {
         margin: 0;
         font-size: 28px;
-        letter-spacing: -0.02em;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        color: var(--ink);
       }
       .role {
-        margin: 4px 0 0;
-        font-size: 15px;
-        font-weight: 600;
+        margin: 3px 0 0;
+        font-size: 14.5px;
+        font-weight: 700;
         color: var(--accent);
+        letter-spacing: 0.01em;
       }
-      .links {
-        font-size: 13px;
+      .contact-grid {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 3px 16px;
+        font-size: 12px;
         color: var(--muted);
         text-align: right;
       }
-      .links a {
+      .contact-grid a {
         color: var(--ink);
         text-decoration: none;
-        font-weight: 500;
+        font-weight: 600;
+      }
+      .contact-grid a:hover {
+        color: var(--accent);
       }
       h2 {
-        font-size: 13px;
+        font-size: 11.5px;
+        font-weight: 800;
         text-transform: uppercase;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.09em;
         color: var(--accent);
         border-bottom: 1px solid var(--border);
-        padding-bottom: 4px;
-        margin: 22px 0 10px;
+        padding-bottom: 3px;
+        margin: 12px 0 7px;
       }
-      .skills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        font-size: 12.5px;
+      .summary {
+        margin: 0;
+        font-size: 12.2px;
+        color: var(--body);
+        line-height: 1.48;
       }
-      .skill-pill {
-        background: #f3f4f6;
+      .competency-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+      }
+      .comp-box {
+        background: var(--surface-soft);
         border: 1px solid var(--border);
-        padding: 3px 10px;
         border-radius: 6px;
-        font-weight: 500;
+        padding: 7px 9px;
+      }
+      .comp-title {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 3px;
+      }
+      .comp-list {
+        font-size: 11px;
+        color: var(--body);
+        line-height: 1.38;
+      }
+      .projects-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
       }
       .project {
-        margin-bottom: 14px;
+        border-left: 2.5px solid var(--accent);
+        padding-left: 10px;
       }
       .project-head {
         display: flex;
         justify-content: space-between;
         align-items: baseline;
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 6px;
       }
       .project-title {
         font-weight: 700;
-        font-size: 14.5px;
+        font-size: 13px;
+        color: var(--ink);
+      }
+      .project-stack {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 10.5px;
+        color: var(--muted);
+        font-weight: 600;
       }
       .project-links {
-        font-size: 12px;
+        font-size: 11.5px;
       }
       .project-links a {
         color: var(--accent);
@@ -131,25 +185,59 @@
         font-weight: 600;
       }
       ul {
-        margin: 4px 0 0;
-        padding-left: 18px;
-        font-size: 13px;
-        color: #374151;
+        margin: 3px 0 0;
+        padding-left: 16px;
+        font-size: 11.8px;
+        color: var(--body);
       }
       li {
-        margin-bottom: 3px;
+        margin-bottom: 2px;
+      }
+      .standards-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+      .std-card {
+        background: var(--accent-soft);
+        border: 1px solid #bae6fd;
+        border-radius: 6px;
+        padding: 7px 10px;
+        font-size: 11.2px;
+        color: var(--body);
+      }
+      .std-card strong {
+        display: block;
+        color: var(--ink);
+        font-size: 11.5px;
+        margin-bottom: 2px;
+      }
+      .footer-bar {
+        border-top: 1px solid var(--border);
+        padding-top: 7px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 10.8px;
+        color: var(--muted);
+        font-weight: 500;
       }
       @media print {
         body {
           background: #ffffff;
           padding: 0;
+          margin: 0;
         }
         .toolbar {
           display: none;
         }
         .sheet {
+          width: 210mm;
+          height: 297mm;
+          min-height: 297mm;
           box-shadow: none;
-          padding: 0;
+          border-radius: 0;
+          padding: 12mm 14mm;
+          margin: 0;
         }
       }
     </style>
@@ -158,104 +246,185 @@
     <div class="toolbar">
       <a href="./" class="btn">← Back to Portfolio Hub</a>
       <button type="button" onclick="window.print()" class="btn btn-primary">
-        Print / Save as PDF
+        Print / Save A4 PDF
       </button>
     </div>
 
     <main class="sheet">
-      <header>
-        <div>
-          <h1>DANIEL NANNINGA</h1>
-          <p class="role">Front-End &amp; Creative AI UI Engineer</p>
-        </div>
-        <div class="links">
-          <div>Portfolio: <a href="https://portfolio-hub-44jc.vercel.app/">portfolio-hub-44jc.vercel.app</a></div>
-          <div>GitHub: <a href="https://github.com/Nannidan">github.com/Nannidan</a></div>
-        </div>
-      </header>
+      <div>
+        <header>
+          <div>
+            <h1>DANIEL NANNINGA</h1>
+            <p class="role">Front-End, Design Systems &amp; Creative AI UI Engineer</p>
+          </div>
+          <div class="contact-grid">
+            <div>Phone: <a href="tel:+12265686968">(226) 568-6968</a></div>
+            <div>Email: <a href="mailto:NanningaDan@gmail.com">NanningaDan@gmail.com</a></div>
+            <div>Portfolio: <a href="https://portfolio-hub-44jc.vercel.app/">portfolio-hub-44jc.vercel.app</a></div>
+            <div>GitHub: <a href="https://github.com/Nannidan">github.com/Nannidan</a></div>
+          </div>
+        </header>
 
-      <h2>Technical Stack</h2>
-      <div class="skills">
-        <span class="skill-pill">React 19</span>
-        <span class="skill-pill">TypeScript 7</span>
-        <span class="skill-pill">Tailwind CSS v4</span>
-        <span class="skill-pill">Vite 8</span>
-        <span class="skill-pill">Web Audio API &amp; DSP</span>
-        <span class="skill-pill">HTML5 Canvas &amp; SVG Telemetry</span>
-        <span class="skill-pill">WCAG 2.1 Accessibility</span>
-        <span class="skill-pill">REST APIs &amp; URL State Sync</span>
-        <span class="skill-pill">Framer Motion</span>
-        <span class="skill-pill">GitHub Actions CI &amp; Node Test Runner</span>
+        <section>
+          <h2>Engineering Profile</h2>
+          <p class="summary">
+            Front-End &amp; AI UI Engineer specializing in high-craft, zero-latency web applications built with
+            <strong>React 19</strong>, <strong>TypeScript</strong>, and <strong>Tailwind CSS v4</strong>. Proven ability to bridge
+            complex browser APIs (Web Audio DSP, 60fps HTML5 Canvas/SVG telemetry, live REST data pipelines) with
+            accessible, resilient design systems (WCAG 2.1 AA/AAA auditing, sensory-friendly low-stimulation UI modes,
+            deterministic code generation, and automated CI verification).
+          </p>
+        </section>
+
+        <section>
+          <h2>Core Technical Competencies</h2>
+          <div class="competency-grid">
+            <div class="comp-box">
+              <div class="comp-title">Front-End Architecture</div>
+              <div class="comp-list">React 19, TypeScript 7, Hooks, Immutable State History, URLSearchParams Sync, Modular Workspaces</div>
+            </div>
+            <div class="comp-box">
+              <div class="comp-title">Design Systems &amp; UI</div>
+              <div class="comp-list">Tailwind CSS v4, CSS Custom Properties, Multi-Axis Theme Engines, Framer Motion, Responsive Grids</div>
+            </div>
+            <div class="comp-box">
+              <div class="comp-title">Browser APIs &amp; Graphics</div>
+              <div class="comp-list">Web Audio API (Biquad, WaveShaper, Convolver, DRC, FFT), HTML5 Canvas 2D, Logarithmic SVG Radar</div>
+            </div>
+            <div class="comp-box">
+              <div class="comp-title">Quality, A11y &amp; DevOps</div>
+              <div class="comp-list">WCAG 2.1 Luminance/Contrast, Low-Stimulation A11y, Node Test Runner, Oxlint, Vite 8, GitHub Actions CI</div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Shipped Production Applications</h2>
+          <div class="projects-wrap">
+            <div class="project">
+              <div class="project-head">
+                <div>
+                  <span class="project-title">PORTFOLIO HUB — Multi-Theme Launchpad &amp; Interactive Canvas Avatar</span>
+                  <span class="project-stack"> • [React 19, TypeScript, Tailwind v4, Canvas 2D]</span>
+                </div>
+                <span class="project-links">
+                  <a href="https://portfolio-hub-44jc.vercel.app/">Live</a> •
+                  <a href="https://github.com/Nannidan/portfolio-hub">GitHub</a>
+                </span>
+              </div>
+              <ul>
+                <li>Architected a 3-axis theme controller (<em>Cyberpunk / Mario / KPop</em> × <em>Day / Night</em> × <em>Modern / 8-Bit Retro</em>) with zero-flash DOM dataset synchronization and persistent preferences.</li>
+                <li>Built <code>&lt;DynamicAvatar /&gt;</code> with dual-layer photorealistic/pixel-art cross-fade morphing, 3D pointer tilt glare, 6 click-to-cycle CSS/blend-mode style variants, and a 60fps reactive particle canvas.</li>
+              </ul>
+            </div>
+
+            <div class="project">
+              <div class="project-head">
+                <div>
+                  <span class="project-title">STAGE 01: AUDIOSYNTH // HZ — Web Audio Synthesizer &amp; Multimodal Mastering DSP</span>
+                  <span class="project-stack"> • [Web Audio API, SVG Rotary Dials, 60fps FFT]</span>
+                </div>
+                <span class="project-links">
+                  <a href="https://neonsynth-playground.vercel.app/">Live</a> •
+                  <a href="https://github.com/Nannidan/neonsynth-playground">GitHub</a>
+                </span>
+              </div>
+              <ul>
+                <li>Engineered a 3-oscillator harmonic synth voice (Main + Detuned Unison + Sub-Octave) feeding a full mastering chain: Pre-Filter Vacuum Tube &amp; Wavefolder Overdrive, 85Hz Dynamic Bass Shelf, Resonant LPF/BPF/HPF, 5-Band Multimodal EQ, LFO-modulated Stereo Chorus Widener, Hall Convolver Reverb, and DRC Limiter.</li>
+                <li>Designed 270° SVG rotary dial controls across 3 switchable rack bays, direct-DOM 60fps <code>AnalyserNode</code> spectrum bars, local MP3/WAV DSP routing, and full URL patch serialization.</li>
+              </ul>
+            </div>
+
+            <div class="project">
+              <div class="project-head">
+                <div>
+                  <span class="project-title">STAGE 02: FORGE // UI — Design-Token Workbench, WCAG 2.1 Auditor &amp; AI Prompt Studio</span>
+                  <span class="project-stack"> • [WCAG Math, Undo/Redo Stack, Code Generator]</span>
+                </div>
+                <span class="project-links">
+                  <a href="https://forge-ui-studio.vercel.app/">Live</a> •
+                  <a href="https://github.com/Nannidan/forge-ui-studio">GitHub</a>
+                </span>
+              </div>
+              <ul>
+                <li>Implemented real-time sRGB relative luminance and WCAG 2.1 AA (4.5:1) / AAA (7.0:1) contrast auditing alongside interactive Default, Hover, Loading, and Disabled component state simulation.</li>
+                <li>Built a keyboard-driven Undo/Redo history hook, <code>localStorage</code> Component Vault CRUD drawer, and deterministic 3-format exporter (React JSX, Tailwind v4 <code>@theme</code> tokens, and structured AI prompts).</li>
+              </ul>
+            </div>
+
+            <div class="project">
+              <div class="project-head">
+                <div>
+                  <span class="project-title">STAGE 03: ORBIT // OPS — Deep-Space Logarithmic Radar &amp; Live ISS/NASA Telemetry</span>
+                  <span class="project-stack"> • [REST Polling, Logarithmic SVG Radar]</span>
+                </div>
+                <span class="project-links">
+                  <a href="https://orbit-ops-theta.vercel.app/">Live</a> •
+                  <a href="https://github.com/Nannidan/orbit-ops">GitHub</a>
+                </span>
+              </div>
+              <ul>
+                <li>Mapped spacecraft across 6 orders of magnitude—from Low Earth Orbit (ISS, Hubble) to L2 (JWST) and interstellar space (Voyager 1 &amp; 2, New Horizons)—on an interactive logarithmic SVG polar radar with 5-second live ISS orbital tracking and NASA Near-Earth Asteroid feeds.</li>
+              </ul>
+            </div>
+
+            <div class="project">
+              <div class="project-head">
+                <div>
+                  <span class="project-title">STAGE 04: LEDGERFLOW // SAAS — Enterprise Revenue &amp; Billing Operations Workspace</span>
+                  <span class="project-stack"> • [SaaS Analytics, Slide-Over CRUD, CSV Export]</span>
+                </div>
+                <span class="project-links">
+                  <a href="https://ledgerflow-saas-nine.vercel.app/">Live</a> •
+                  <a href="https://github.com/Nannidan/ledgerflow-saas">GitHub</a>
+                </span>
+              </div>
+              <ul>
+                <li>Created a high-clarity light-mode SaaS dashboard with 30D/90D/12M revenue-vs-target charts, live KPI cards, multi-column invoice search/sort/filter, slide-over line-item inspector, and RFC-4180 CSV export.</li>
+              </ul>
+            </div>
+
+            <div class="project">
+              <div class="project-head">
+                <div>
+                  <span class="project-title">STAGE 05: SPECTRUM // LENS — Sensory-Friendly Epidemiology &amp; Live Research APIs</span>
+                  <span class="project-stack"> • [OpenAlex &amp; ClinicalTrials.gov v2, Low-Stim UI]</span>
+                </div>
+                <span class="project-links">
+                  <a href="https://nannidan.github.io/spectrum-lens/">Live</a> •
+                  <a href="https://github.com/Nannidan/spectrum-lens">GitHub</a>
+                </span>
+              </div>
+              <ul>
+                <li>Integrated live OpenAlex publication trends and ClinicalTrials.gov v2 study feeds with 8 primary-sourced CDC/NIH/PubMed epidemiological datasets, bidirectional URL query sync, low-stimulation sensory mode, and a 6-domain AI trait-reflection probability estimator.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Engineering Standards &amp; Delivery</h2>
+          <div class="standards-grid">
+            <div class="std-card">
+              <strong>Accessibility &amp; Sensory Craft</strong>
+              Semantic ARIA roles, keyboard navigation, live WCAG contrast verification, and <code>prefers-reduced-motion</code> compliance across every module.
+            </div>
+            <div class="std-card">
+              <strong>Resilient Data &amp; State</strong>
+              <code>AbortController</code> fetch lifecycles, explicit loading skeletons, retryable error states, and shareable URL query-string serialization.
+            </div>
+            <div class="std-card">
+              <strong>Automated CI &amp; Strict Typing</strong>
+              Zero-warning TypeScript (<code>tsc -b</code>) and <code>oxlint</code> builds verified by automated Node test suites and GitHub Actions CI workflows.
+            </div>
+          </div>
+        </section>
       </div>
 
-      <h2>Production Engineering Portfolio</h2>
-
-      <div class="project">
-        <div class="project-head">
-          <span class="project-title">AUDIOSYNTH // HZ — Web Audio Synthesizer &amp; Multimodal DSP Mastering Console</span>
-          <span class="project-links">
-            <a href="https://neonsynth-playground.vercel.app/">Live App</a> •
-            <a href="https://github.com/Nannidan/neonsynth-playground">GitHub</a>
-          </span>
-        </div>
-        <ul>
-          <li>Engineered a zero-latency browser DSP chain featuring 75Hz Dynamic Bass Boost, 2x-oversampled Vacuum Tube WaveShaper, 5-Band Multimodal EQ, Haas Stereo Widener, Convolver Room Reverb, and DRC Limiter.</li>
-          <li>Built a 60fps direct-DOM <code>AnalyserNode</code> FFT spectrum visualizer and full URL query-string patch serialization.</li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <div class="project-head">
-          <span class="project-title">FORGE // UI — Design-Token Workbench, WCAG 2.1 Auditor &amp; AI Prompt Studio</span>
-          <span class="project-links">
-            <a href="https://forge-ui-studio.vercel.app/">Live App</a> •
-            <a href="https://github.com/Nannidan/forge-ui-studio">GitHub</a>
-          </span>
-        </div>
-        <ul>
-          <li>Implemented real-time sRGB relative luminance and WCAG 2.1 AA/AAA contrast auditing with interactive Default/Hover/Loading/Disabled state simulation.</li>
-          <li>Architected an immutable Undo/Redo history stack, <code>localStorage</code> Component Vault CRUD drawer, and 3-format code/prompt exporter (JSX, Tailwind v4 <code>@theme</code>, AI Prompt).</li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <div class="project-head">
-          <span class="project-title">ORBIT // OPS — Deep-Space Logarithmic Radar &amp; Live ISS/NASA Telemetry</span>
-          <span class="project-links">
-            <a href="https://orbit-ops-theta.vercel.app/">Live App</a> •
-            <a href="https://github.com/Nannidan/orbit-ops">GitHub</a>
-          </span>
-        </div>
-        <ul>
-          <li>Designed a logarithmic SVG polar radar mapping Voyager 1 &amp; 2, New Horizons, JWST, Hubble, and live 5-second ISS orbital telemetry alongside NASA Near-Earth Asteroid feeds.</li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <div class="project-head">
-          <span class="project-title">LEDGERFLOW // SAAS — Enterprise Revenue &amp; Billing Operations Dashboard</span>
-          <span class="project-links">
-            <a href="https://ledgerflow-saas-nine.vercel.app/">Live App</a> •
-            <a href="https://github.com/Nannidan/ledgerflow-saas">GitHub</a>
-          </span>
-        </div>
-        <ul>
-          <li>Built a high-clarity light-mode SaaS billing workspace with 30D/90D/12M revenue target visualization, multi-column invoice filtering/sorting, slide-over detail drawer, and RFC-4180 CSV export.</li>
-        </ul>
-      </div>
-
-      <div class="project">
-        <div class="project-head">
-          <span class="project-title">SPECTRUM // LENS — Sensory-Friendly Epidemiology &amp; Live Research Telemetry</span>
-          <span class="project-links">
-            <a href="https://nannidan.github.io/spectrum-lens/">Live App</a> •
-            <a href="https://github.com/Nannidan/spectrum-lens">GitHub</a>
-          </span>
-        </div>
-        <ul>
-          <li>Combined live OpenAlex and ClinicalTrials.gov v2 APIs with 8 primary-sourced epidemiological datasets, bidirectional URL state sync, low-stimulation sensory mode, and an AI trait-reflection probability estimator.</li>
-        </ul>
-      </div>
+      <footer class="footer-bar">
+        <span>Daniel Nanninga • (226) 568-6968 • NanningaDan@gmail.com</span>
+        <span>All 5 live applications &amp; source repositories verified at portfolio-hub-44jc.vercel.app</span>
+      </footer>
     </main>
   </body>
 </html>
