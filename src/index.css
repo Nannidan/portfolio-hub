@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #05080f;
+    color: #f4f4f5;
+    min-height: 100dvh;
+    -webkit-font-smoothing: antialiased;
+  }
+}
