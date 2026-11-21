@@ -1,10 +1,472 @@
 @import "tailwindcss";
 
+:root {
+  --bg: #05080f;
+  --surface: rgba(9, 13, 24, 0.88);
+  --surface-alt: #111827;
+  --ink: #f4f4f5;
+  --muted: #94a3b8;
+  --accent: #06b6d4;
+  --accent-2: #f43f5e;
+  --accent-contrast: #05080f;
+  --border: rgba(6, 182, 212, 0.3);
+  --glow: rgba(6, 182, 212, 0.35);
+  --shadow-hard: #06b6d4;
+  --pattern: radial-gradient(rgba(6, 182, 212, 0.14) 1px, transparent 1px);
+  --pattern-size: 26px 26px;
+}
+
+/* ================= CYBERPUNK ================= */
+[data-theme="cyberpunk"][data-mode="dark"] {
+  --bg: #05080f;
+  --surface: rgba(10, 15, 28, 0.88);
+  --surface-alt: #111827;
+  --ink: #f8fafc;
+  --muted: #94a3b8;
+  --accent: #06b6d4;
+  --accent-2: #ff007f;
+  --accent-contrast: #041016;
+  --border: rgba(6, 182, 212, 0.35);
+  --glow: rgba(6, 182, 212, 0.45);
+  --shadow-hard: #ff007f;
+  --pattern: linear-gradient(rgba(6, 182, 212, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 127, 0.08) 1px, transparent 1px);
+  --pattern-size: 32px 32px;
+}
+
+[data-theme="cyberpunk"][data-mode="light"] {
+  --bg: #eef6ff;
+  --surface: rgba(255, 255, 255, 0.92);
+  --surface-alt: #e0f2fe;
+  --ink: #0f172a;
+  --muted: #475569;
+  --accent: #0284c7;
+  --accent-2: #db2777;
+  --accent-contrast: #ffffff;
+  --border: rgba(2, 132, 199, 0.35);
+  --glow: rgba(2, 132, 199, 0.28);
+  --shadow-hard: #db2777;
+  --pattern: linear-gradient(rgba(2, 132, 199, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(219, 39, 119, 0.08) 1px, transparent 1px);
+  --pattern-size: 32px 32px;
+}
+
+/* ================= SUPER MARIO ================= */
+[data-theme="mario"][data-mode="dark"] {
+  /* Underground World 1-2 */
+  --bg: #0b1021;
+  --surface: rgba(18, 25, 48, 0.94);
+  --surface-alt: #1b2547;
+  --ink: #fefce8;
+  --muted: #cbd5e1;
+  --accent: #ef4444;
+  --accent-2: #facc15;
+  --accent-contrast: #ffffff;
+  --border: rgba(250, 204, 21, 0.45);
+  --glow: rgba(239, 68, 68, 0.4);
+  --shadow-hard: #22c55e;
+  --pattern: linear-gradient(90deg, rgba(59, 130, 246, 0.14) 2px, transparent 2px),
+    linear-gradient(rgba(59, 130, 246, 0.14) 2px, transparent 2px);
+  --pattern-size: 36px 22px;
+}
+
+[data-theme="mario"][data-mode="light"] {
+  /* Overworld Sky World 1-1 */
+  --bg: #6b9cff;
+  --surface: rgba(255, 251, 235, 0.96);
+  --surface-alt: #fef3c7;
+  --ink: #1e1b4b;
+  --muted: #475569;
+  --accent: #e52521;
+  --accent-2: #43b047;
+  --accent-contrast: #ffffff;
+  --border: rgba(229, 37, 33, 0.45);
+  --glow: rgba(251, 208, 0, 0.55);
+  --shadow-hard: #1e1b4b;
+  --pattern: radial-gradient(rgba(255, 255, 255, 0.35) 2px, transparent 2px);
+  --pattern-size: 28px 28px;
+}
+
+/* ================= KPOP DEMON HUNTERS ================= */
+[data-theme="kpop"][data-mode="dark"] {
+  /* Neon Concert / Demon Realm */
+  --bg: #0c0518;
+  --surface: rgba(24, 10, 46, 0.88);
+  --surface-alt: #241042;
+  --ink: #fdf4ff;
+  --muted: #d8b4fe;
+  --accent: #ff2a85;
+  --accent-2: #fbbf24;
+  --accent-contrast: #ffffff;
+  --border: rgba(255, 42, 133, 0.45);
+  --glow: rgba(255, 42, 133, 0.45);
+  --shadow-hard: #a855f7;
+  --pattern: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 42, 133, 0.06) 0px,
+    rgba(255, 42, 133, 0.06) 2px,
+    transparent 2px,
+    transparent 24px
+  );
+  --pattern-size: auto;
+}
+
+[data-theme="kpop"][data-mode="light"] {
+  /* Celestial Idol Stage */
+  --bg: #fdf2f8;
+  --surface: rgba(255, 255, 255, 0.94);
+  --surface-alt: #fce7f3;
+  --ink: #2e1065;
+  --muted: #6b21a8;
+  --accent: #db2777;
+  --accent-2: #7c3aed;
+  --accent-contrast: #ffffff;
+  --border: rgba(219, 39, 119, 0.35);
+  --glow: rgba(124, 58, 237, 0.28);
+  --shadow-hard: #7c3aed;
+  --pattern: repeating-linear-gradient(
+    -45deg,
+    rgba(219, 39, 119, 0.06) 0px,
+    rgba(219, 39, 119, 0.06) 2px,
+    transparent 2px,
+    transparent 24px
+  );
+  --pattern-size: auto;
+}
+
 @layer base {
   body {
-    background-color: #05080f;
-    color: #f4f4f5;
+    background-color: var(--bg);
+    color: var(--ink);
     min-height: 100dvh;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    background-image: var(--pattern);
+    background-size: var(--pattern-size);
+    transition: background-color 200ms ease, color 200ms ease;
     -webkit-font-smoothing: antialiased;
   }
+}
+
+/* ================= MODERN VS RETRO PIXEL ART ================= */
+.hub-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  backdrop-filter: blur(12px);
+  transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+}
+
+.hub-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 18px 45px -18px var(--glow);
+}
+
+.hub-btn-primary {
+  background-color: var(--accent);
+  color: var(--accent-contrast);
+  border-radius: 0.75rem;
+  transition: transform 100ms ease, filter 120ms ease, box-shadow 120ms ease;
+}
+
+.hub-btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+.hub-btn-secondary {
+  background-color: var(--surface-alt);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  transition: transform 100ms ease, border-color 120ms ease;
+}
+
+.hub-btn-secondary:hover {
+  border-color: var(--accent);
+}
+
+.hub-pill {
+  border-radius: 9999px;
+}
+
+/* RETRO 8-BIT PIXEL ART OVERRIDES */
+[data-style="retro"] body,
+[data-style="retro"] {
+  image-rendering: pixelated;
+}
+
+[data-style="retro"] .pixel-heading {
+  font-family: 'Press Start 2P', monospace;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+}
+
+[data-style="retro"] .hub-card {
+  border-radius: 0px !important;
+  border: 3px solid var(--ink);
+  backdrop-filter: none;
+  box-shadow: 6px 6px 0px var(--shadow-hard);
+}
+
+[data-style="retro"] .hub-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px var(--shadow-hard);
+}
+
+[data-style="retro"] .hub-btn-primary,
+[data-style="retro"] .hub-btn-secondary {
+  border-radius: 0px !important;
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0px var(--shadow-hard);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.68rem;
+}
+
+[data-style="retro"] .hub-btn-primary:active,
+[data-style="retro"] .hub-btn-secondary:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0px var(--shadow-hard);
+}
+
+[data-style="retro"] .hub-pill,
+[data-style="retro"] .hub-tag {
+  border-radius: 0px !important;
+  border: 2px solid var(--border);
+}
+
+/* ================= DISTINCT THEME TYPOGRAPHY ================= */
+[data-theme="cyberpunk"] {
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Rajdhani', system-ui, sans-serif;
+}
+
+[data-theme="mario"] {
+  --font-display: 'Bungee', cursive;
+  --font-body: 'Nunito', system-ui, sans-serif;
+}
+
+[data-theme="kpop"] {
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+.pixel-heading {
+  font-family: var(--font-display);
+}
+
+[data-theme="cyberpunk"] .pixel-heading {
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+[data-theme="mario"] .pixel-heading {
+  letter-spacing: 0.02em;
+}
+
+[data-theme="kpop"] .pixel-heading {
+  letter-spacing: -0.02em;
+}
+
+/* Retro 8-Bit mode still overrides display font to pixel art */
+[data-style="retro"] .pixel-heading {
+  font-family: 'Press Start 2P', monospace !important;
+  text-transform: uppercase;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+}
+
+/* ================= DYNAMIC AVATAR EFFECTS ================= */
+.avatar-shell {
+  position: relative;
+  border-radius: 1.5rem;
+  padding: 3px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 14px 36px -10px var(--glow);
+  transition: transform 180ms ease, box-shadow 200ms ease, border-radius 180ms ease;
+}
+
+.avatar-shell:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.avatar-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: calc(1.5rem - 3px);
+  background-color: var(--surface-alt);
+}
+
+.avatar-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 220ms ease, transform 220ms ease;
+}
+
+/* Day (Light) vs Night (Dark) lighting grade */
+[data-mode="light"] .avatar-img {
+  filter: brightness(1.08) contrast(1.03) saturate(1.08);
+}
+
+[data-mode="dark"] .avatar-img {
+  filter: brightness(0.95) contrast(1.08) saturate(1.12);
+}
+
+/* Theme-correlated rim light & tint overlay */
+.avatar-overlay {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  transition: opacity 220ms ease, background 220ms ease;
+}
+
+[data-theme="cyberpunk"][data-mode="dark"] .avatar-overlay {
+  background:
+    linear-gradient(135deg, rgba(6, 182, 212, 0.28) 0%, transparent 48%, rgba(255, 0, 127, 0.3) 100%),
+    repeating-linear-gradient(0deg, rgba(6, 182, 212, 0.08) 0px, rgba(6, 182, 212, 0.08) 1px, transparent 1px, transparent 4px);
+  mix-blend-mode: screen;
+}
+
+[data-theme="cyberpunk"][data-mode="light"] .avatar-overlay {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.16) 0%, transparent 55%, rgba(219, 39, 119, 0.16) 100%);
+  mix-blend-mode: overlay;
+}
+
+[data-theme="mario"][data-mode="dark"] .avatar-overlay {
+  background: radial-gradient(circle at 80% 15%, rgba(250, 204, 21, 0.28), transparent 55%),
+    linear-gradient(180deg, transparent 60%, rgba(239, 68, 68, 0.24) 100%);
+  mix-blend-mode: screen;
+}
+
+[data-theme="mario"][data-mode="light"] .avatar-overlay {
+  background: radial-gradient(circle at 20% 15%, rgba(255, 251, 235, 0.32), transparent 55%),
+    linear-gradient(180deg, transparent 65%, rgba(67, 176, 71, 0.18) 100%);
+  mix-blend-mode: soft-light;
+}
+
+[data-theme="kpop"][data-mode="dark"] .avatar-overlay {
+  background:
+    linear-gradient(135deg, rgba(255, 42, 133, 0.32) 0%, transparent 45%, rgba(168, 85, 247, 0.34) 100%),
+    radial-gradient(circle at 85% 15%, rgba(251, 191, 36, 0.3), transparent 40%);
+  mix-blend-mode: screen;
+}
+
+[data-theme="kpop"][data-mode="light"] .avatar-overlay {
+  background: linear-gradient(135deg, rgba(219, 39, 119, 0.16) 0%, transparent 50%, rgba(124, 58, 237, 0.18) 100%);
+  mix-blend-mode: soft-light;
+}
+
+/* Retro 8-Bit Pixel Mode Overrides */
+[data-style="retro"] .avatar-shell {
+  border-radius: 0px !important;
+  padding: 0px;
+  background: var(--surface-alt);
+  border: 3px solid var(--ink);
+  box-shadow: 6px 6px 0px var(--shadow-hard);
+}
+
+[data-style="retro"] .avatar-frame {
+  border-radius: 0px !important;
+}
+
+[data-style="retro"] .avatar-img {
+  image-rendering: pixelated;
+}
+
+/* Dual-layer cross-fade morphing & pointer glare */
+.avatar-layer {
+  position: absolute;
+  inset: 0;
+  transition: opacity 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 240ms ease;
+}
+
+.avatar-img-pixel {
+  image-rendering: pixelated;
+}
+
+.avatar-glare {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: radial-gradient(
+    circle at var(--glare-x, 50%) var(--glare-y, 50%),
+    rgba(255, 255, 255, 0.28) 0%,
+    rgba(255, 255, 255, 0.06) 38%,
+    transparent 68%
+  );
+  mix-blend-mode: overlay;
+  transition: opacity 180ms ease;
+}
+
+.avatar-shell:hover .avatar-glare {
+  opacity: 1;
+}
+
+/* Click-to-cycle Dynamic Style Variants */
+[data-variant="holo"] .avatar-img {
+  filter: contrast(1.08) saturate(1.28) hue-rotate(12deg);
+}
+
+[data-variant="holo"] .avatar-overlay {
+  background: conic-gradient(
+    from 140deg at 50% 50%,
+    rgba(6, 182, 212, 0.35),
+    rgba(255, 0, 127, 0.32),
+    rgba(250, 204, 21, 0.28),
+    rgba(168, 85, 247, 0.35),
+    rgba(6, 182, 212, 0.35)
+  ) !important;
+  mix-blend-mode: color-dodge !important;
+}
+
+[data-variant="crt"] .avatar-img {
+  filter: contrast(1.16) saturate(1.15) brightness(0.95);
+}
+
+[data-variant="crt"] .avatar-overlay {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.28) 0px,
+      rgba(0, 0, 0, 0.28) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    radial-gradient(circle at center, transparent 58%, rgba(0, 0, 0, 0.55) 100%) !important;
+  mix-blend-mode: normal !important;
+}
+
+[data-variant="cyber"] .avatar-img {
+  filter: contrast(1.25) saturate(1.45) brightness(0.96);
+}
+
+[data-variant="cyber"] .avatar-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(6, 182, 212, 0.42) 0%,
+    transparent 45%,
+    rgba(255, 0, 127, 0.44) 100%
+  ) !important;
+  mix-blend-mode: screen !important;
+}
+
+[data-variant="noir"] .avatar-img {
+  filter: grayscale(1) contrast(1.28) brightness(0.96);
+}
+
+[data-variant="noir"] .avatar-overlay {
+  background: radial-gradient(circle at 25% 20%, rgba(255, 255, 255, 0.16), transparent 60%),
+    linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.42) 100%) !important;
+  mix-blend-mode: soft-light !important;
+}
+
+[data-variant="pixel"] .avatar-img-pixel {
+  filter: contrast(1.1) saturate(1.22);
 }
