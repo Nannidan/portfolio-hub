@@ -39,7 +39,7 @@ const PROJECTS: Project[] = [
   {
     id: 'neonsynth',
     code: 'STAGE 01',
-    title: 'NEONSYNTH // K-01',
+    title: 'AUDIOSYNTH // HZ',
     tagline: 'Browser Modular Synthesizer & Audio DSP',
     description:
       'Real-time Web Audio API synthesizer with live 60fps AnalyserNode FFT visualizer, local MP3 DSP routing, YouTube deck, shareable patch URLs, 4 persistent themes, and interactive demo checkout.',
