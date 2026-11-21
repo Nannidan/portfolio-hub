@@ -93,11 +93,11 @@ export default function App() {
                 <span>Resume</span>
               </a>
               <a
-                href="mailto:NanningaDan@gmail.com"
+                href="mailto:nanningadan@gmail.com"
                 className="hub-btn-secondary inline-flex items-center gap-1.5 px-3.5 py-2 font-mono text-xs font-semibold"
               >
                 <Mail className="h-3.5 w-3.5" />
-                <span>NanningaDan@gmail.com</span>
+                <span>nanningadan@gmail.com</span>
               </a>
               <a
                 href="https://github.com/Nannidan"
@@ -144,11 +144,11 @@ export default function App() {
               resume
             </a>
             <a
-              href="mailto:NanningaDan@gmail.com"
+              href="mailto:nanningadan@gmail.com"
               className="inline-flex items-center gap-1.5 font-mono font-semibold transition-opacity hover:opacity-80"
               style={{ color: 'var(--ink)' }}
             >
-              NanningaDan@gmail.com
+              nanningadan@gmail.com
             </a>
             <a
               href="https://github.com/Nannidan/portfolio-hub"
