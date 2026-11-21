@@ -5,12 +5,12 @@ export const PROJECTS: Project[] = [
     id: 'neonsynth',
     code: 'STAGE 01',
     title: 'AUDIOSYNTH // HZ',
-    tagline: 'Browser Modular Synthesizer & JamesDSP Mastering',
+    tagline: 'Browser Modular Synthesizer & Multimodal Mastering DSP',
     description:
-      'Real-time Web Audio API synthesizer and JamesDSP-inspired mastering rack with SVG rotary dials, Dynamic Bass Boost, Vacuum Tube Modelling, Stereo Widener, Convolver Reverb, DRC Limiter, 5-Band EQ, and 60fps FFT visualizer.',
+      'Real-time Web Audio API synthesizer and studio mastering rack with SVG rotary dials, Dynamic Bass Boost, Vacuum Tube Saturation, Haas Stereo Widener, Convolver Reverb, DRC Limiter, 5-Band EQ, and 60fps FFT visualizer.',
     liveUrl: 'https://neonsynth-playground.vercel.app/',
     repoUrl: 'https://github.com/Nannidan/neonsynth-playground',
-    tags: ['React 19', 'TypeScript', 'Web Audio DSP', 'JamesDSP Chain', 'Tailwind v4'],
+    tags: ['React 19', 'TypeScript', 'Web Audio DSP', '5-Band EQ & Tube', 'Tailwind v4'],
     icon: 'synth',
   },
   {
