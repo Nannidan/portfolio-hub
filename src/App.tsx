@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import {
-  Activity,
   ArrowUpRight,
   Code2,
   Cpu,
@@ -11,6 +10,7 @@ import {
   Monitor,
   Moon,
   Palette,
+  Satellite,
   Sparkles,
   Sun,
   Terminal,
@@ -32,7 +32,7 @@ interface Project {
   liveUrl: string
   repoUrl: string
   tags: string[]
-  icon: 'synth' | 'forge' | 'spectrum'
+  icon: 'synth' | 'forge' | 'orbit'
 }
 
 const PROJECTS: Project[] = [
@@ -61,16 +61,16 @@ const PROJECTS: Project[] = [
     icon: 'forge',
   },
   {
-    id: 'spectrum-lens',
+    id: 'orbit-ops',
     code: 'STAGE 03',
-    title: 'SPECTRUM // LENS',
-    tagline: 'Autism Epidemiology & Live API Telemetry',
+    title: 'ORBIT // OPS',
+    tagline: 'Live Voyager, ISS & Deep-Space Telemetry',
     description:
-      'Sensory-friendly dashboard comparing CDC diagnosis prevalence, NIH/IACC funding, DSM-5 criteria shifts, and 5 demographic/misinformation dimensions with live OpenAlex & ClinicalTrials.gov APIs.',
-    liveUrl: 'https://nannidan.github.io/spectrum-lens/',
-    repoUrl: 'https://github.com/Nannidan/spectrum-lens',
-    tags: ['React 19', 'TypeScript', 'Live APIs', 'URL State Sync', 'Low-Stim UI'],
-    icon: 'spectrum',
+      'Real-time space dashboard tracking Voyager 1 & 2, New Horizons, JWST, and Hubble on a logarithmic radar alongside live 5s ISS orbital tracking, NASA Near-Earth Asteroids, and upcoming launches.',
+    liveUrl: 'https://orbit-ops.vercel.app/',
+    repoUrl: 'https://github.com/Nannidan/orbit-ops',
+    tags: ['React 19', 'TypeScript', 'Live REST APIs', 'SVG Telemetry', 'Tailwind v4'],
+    icon: 'orbit',
   },
 ]
 
@@ -144,8 +144,7 @@ export default function App() {
 
   return (
     <div className="flex min-h-dvh flex-col justify-between">
-      {/* Main Splash Content */}
-      <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:py-20">
+      <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:py-20">
         <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
           <DynamicAvatar theme={theme} mode={mode} style={style} />
 
@@ -176,7 +175,6 @@ export default function App() {
           </div>
         </div>
 
-        {/* Project Cards */}
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.map((project) => (
             <article key={project.id} className="hub-card flex flex-col justify-between p-6">
@@ -195,7 +193,7 @@ export default function App() {
                     ) : project.icon === 'forge' ? (
                       <Layers className="h-3 w-3" />
                     ) : (
-                      <Activity className="h-3 w-3" />
+                      <Satellite className="h-3 w-3" />
                     )}
                     {project.code}
                   </span>
@@ -265,7 +263,6 @@ export default function App() {
         </div>
       </main>
 
-      {/* Footer */}
       <footer
         className="border-t"
         style={{
@@ -274,37 +271,25 @@ export default function App() {
         }}
       >
         <div
-          className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-4 py-4 pr-20 text-xs sm:px-6"
+          className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-4 pr-20 text-xs sm:px-6"
           style={{ color: 'var(--muted)' }}
         >
           <span className="font-mono font-semibold" style={{ color: 'var(--ink)' }}>
             DANIEL NANNINGA // 2026
           </span>
-          <div className="flex flex-wrap items-center gap-4">
-            <a
-              href="https://github.com/Nannidan/portfolio-hub"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 font-mono font-semibold transition-opacity hover:opacity-80"
-              style={{ color: 'var(--accent)' }}
-            >
-              <Code2 className="h-3.5 w-3.5" />
-              portfolio-hub
-            </a>
-            <a
-              href="https://github.com/Nannidan"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 font-mono font-semibold transition-opacity hover:opacity-80"
-              style={{ color: 'var(--muted)' }}
-            >
-              github.com/Nannidan
-            </a>
-          </div>
+          <a
+            href="https://github.com/Nannidan"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 font-mono font-semibold transition-opacity hover:opacity-80"
+            style={{ color: 'var(--accent)' }}
+          >
+            <Code2 className="h-3.5 w-3.5" />
+            github.com/Nannidan
+          </a>
         </div>
       </footer>
 
-      {/* Floating Theme Popup Bubble Menu */}
       <div
         ref={menuRef}
         className="fixed right-4 bottom-4 z-50 flex flex-col items-end gap-3 sm:right-6 sm:bottom-6"
