@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import {
+  Activity,
   ArrowUpRight,
   Code2,
   Cpu,
@@ -31,7 +32,7 @@ interface Project {
   liveUrl: string
   repoUrl: string
   tags: string[]
-  icon: 'synth' | 'forge'
+  icon: 'synth' | 'forge' | 'spectrum'
 }
 
 const PROJECTS: Project[] = [
@@ -58,6 +59,18 @@ const PROJECTS: Project[] = [
     repoUrl: 'https://github.com/Nannidan/forge-ui-studio',
     tags: ['React 19', 'TypeScript', 'Tailwind v4', 'WCAG A11y', 'localStorage CRUD'],
     icon: 'forge',
+  },
+  {
+    id: 'spectrum-lens',
+    code: 'STAGE 03',
+    title: 'SPECTRUM // LENS',
+    tagline: 'Autism Epidemiology & Live API Telemetry',
+    description:
+      'Sensory-friendly dashboard comparing CDC diagnosis prevalence, NIH/IACC funding, DSM-5 criteria shifts, and 5 demographic/misinformation dimensions with live OpenAlex & ClinicalTrials.gov APIs.',
+    liveUrl: 'https://spectrum-lens.vercel.app/',
+    repoUrl: 'https://github.com/Nannidan/spectrum-lens',
+    tags: ['React 19', 'TypeScript', 'Live APIs', 'URL State Sync', 'Low-Stim UI'],
+    icon: 'spectrum',
   },
 ]
 
@@ -164,7 +177,7 @@ export default function App() {
         </div>
 
         {/* Project Cards */}
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.map((project) => (
             <article key={project.id} className="hub-card flex flex-col justify-between p-6">
               <div>
@@ -179,8 +192,10 @@ export default function App() {
                   >
                     {project.icon === 'synth' ? (
                       <Cpu className="h-3 w-3" />
-                    ) : (
+                    ) : project.icon === 'forge' ? (
                       <Layers className="h-3 w-3" />
+                    ) : (
+                      <Activity className="h-3 w-3" />
                     )}
                     {project.code}
                   </span>
