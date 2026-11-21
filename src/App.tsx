@@ -280,16 +280,27 @@ export default function App() {
           <span className="font-mono font-semibold" style={{ color: 'var(--ink)' }}>
             DANIEL NANNINGA // 2026
           </span>
-          <a
-            href="https://github.com/Nannidan"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 font-mono font-semibold transition-opacity hover:opacity-80"
-            style={{ color: 'var(--accent)' }}
-          >
-            <Code2 className="h-3.5 w-3.5" />
-            github.com/Nannidan
-          </a>
+          <div className="flex flex-wrap items-center gap-4">
+            <a
+              href="https://github.com/Nannidan/portfolio-hub"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 font-mono font-semibold transition-opacity hover:opacity-80"
+              style={{ color: 'var(--accent)' }}
+            >
+              <Code2 className="h-3.5 w-3.5" />
+              portfolio-hub
+            </a>
+            <a
+              href="https://github.com/Nannidan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 font-mono font-semibold transition-opacity hover:opacity-80"
+              style={{ color: 'var(--muted)' }}
+            >
+              github.com/Nannidan
+            </a>
+          </div>
         </div>
       </footer>
 
