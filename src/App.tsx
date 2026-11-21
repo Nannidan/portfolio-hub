@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react'
-import { FileText, Mail, Terminal } from 'lucide-react'
+import { Command, FileText, Mail, Send, Terminal } from 'lucide-react'
+import { CommandPalette } from './components/CommandPalette'
+import { CredentialsSection } from './components/CredentialsSection'
 import { DynamicAvatar } from './components/DynamicAvatar'
+import { InquiryModal } from './components/InquiryModal'
 import { ProjectCard } from './components/ProjectCard'
 import { ThemeDock } from './components/ThemeDock'
 import { PROJECTS, THEME_META } from './data/projects'
@@ -25,6 +28,8 @@ export default function App() {
   const [style, setStyle] = useState<VisualStyle>(() => {
     return window.localStorage.getItem('hub-style') === 'retro' ? 'retro' : 'modern'
   })
+  const [paletteOpen, setPaletteOpen] = useState(false)
+  const [inquiryOpen, setInquiryOpen] = useState(false)
 
   useEffect(() => {
     const root = document.documentElement
@@ -35,6 +40,18 @@ export default function App() {
     window.localStorage.setItem('hub-mode', mode)
     window.localStorage.setItem('hub-style', style)
   }, [theme, mode, style])
+
+  // Global Cmd+K / Ctrl+K shortcut for Command Palette
+  useEffect(() => {
+    function onKeyDown(e: KeyboardEvent) {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault()
+        setPaletteOpen((prev) => !prev)
+      }
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [])
 
   const meta = THEME_META[theme]
 
@@ -67,7 +84,7 @@ export default function App() {
                 }}
               >
                 <span className="h-2 w-2 rounded-full bg-emerald-400" />
-                OPEN TO FRONT-END &amp; AI UI ROLES
+                OPEN TO DESIGN &amp; FULL-STACK UI ROLES
               </span>
             </div>
 
@@ -83,7 +100,7 @@ export default function App() {
               {meta.sub}
             </p>
 
-            {/* Recruiter Quick-Action Bar */}
+            {/* Recruiter & Power-User Quick-Action Bar */}
             <div className="mt-4 flex flex-wrap items-center gap-2.5">
               <a
                 href="./resume.html"
@@ -92,6 +109,16 @@ export default function App() {
                 <FileText className="h-3.5 w-3.5" />
                 <span>Resume</span>
               </a>
+
+              <button
+                type="button"
+                onClick={() => setInquiryOpen(true)}
+                className="hub-btn-secondary inline-flex cursor-pointer items-center gap-1.5 px-3.5 py-2 font-mono text-xs font-semibold"
+              >
+                <Send className="h-3.5 w-3.5" style={{ color: 'var(--accent)' }} />
+                <span>Direct Inquiry (API)</span>
+              </button>
+
               <a
                 href="mailto:nanningadan@gmail.com"
                 className="hub-btn-secondary inline-flex items-center gap-1.5 px-3.5 py-2 font-mono text-xs font-semibold"
@@ -99,6 +126,7 @@ export default function App() {
                 <Mail className="h-3.5 w-3.5" />
                 <span>nanningadan@gmail.com</span>
               </a>
+
               <a
                 href="https://github.com/Nannidan"
                 target="_blank"
@@ -108,16 +136,29 @@ export default function App() {
                 <GitHubIcon className="h-3.5 w-3.5" />
                 <span>@Nannidan</span>
               </a>
+
+              <button
+                type="button"
+                onClick={() => setPaletteOpen(true)}
+                className="hub-btn-secondary inline-flex cursor-pointer items-center gap-1.5 px-3 py-2 font-mono text-xs font-semibold"
+                title="Open Command Palette (Cmd+K / Ctrl+K)"
+              >
+                <Command className="h-3.5 w-3.5" style={{ color: 'var(--accent)' }} />
+                <span>⌘K</span>
+              </button>
             </div>
           </div>
         </div>
 
-        {/* Modular Project Grid */}
+        {/* Modular 3x2 Project Grid */}
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.map((project) => (
             <ProjectCard key={project.id} project={project} style={style} />
           ))}
         </div>
+
+        {/* Google Developer Program & Verifiable Skill Badges */}
+        <CredentialsSection />
       </main>
 
       <footer
@@ -135,6 +176,15 @@ export default function App() {
             DANIEL NANNINGA // 2026
           </span>
           <div className="flex flex-wrap items-center gap-4">
+            <button
+              type="button"
+              onClick={() => setPaletteOpen(true)}
+              className="inline-flex cursor-pointer items-center gap-1 font-mono font-semibold transition-opacity hover:opacity-80"
+              style={{ color: 'var(--muted)' }}
+            >
+              <Command className="h-3.5 w-3.5" />
+              ⌘K Palette
+            </button>
             <a
               href="./resume.html"
               className="inline-flex items-center gap-1.5 font-mono font-semibold transition-opacity hover:opacity-80"
@@ -172,6 +222,16 @@ export default function App() {
         onSelectMode={setMode}
         onSelectStyle={setStyle}
       />
+
+      <CommandPalette
+        open={paletteOpen}
+        onClose={() => setPaletteOpen(false)}
+        onOpenInquiry={() => setInquiryOpen(true)}
+        onSelectTheme={setTheme}
+        onSelectMode={setMode}
+      />
+
+      <InquiryModal open={inquiryOpen} onClose={() => setInquiryOpen(false)} />
     </div>
   )
 }
